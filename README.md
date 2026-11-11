@@ -6,7 +6,7 @@ Projeto educacional de engenharia de IA para consultar documentos públicos da R
 
 ## Executar localmente
 
-Python 3.11+; validado nesta entrega com Python 3.12.14 no Windows. No PowerShell, a partir desta pasta:
+Python 3.11+ (testado com Python 3.12.14 no Windows). No PowerShell:
 
 ```powershell
 python -m venv .venv
@@ -25,7 +25,7 @@ Abra http://127.0.0.1:8000/docs. Ingestão e primeiro download do modelo requere
 
 É necessário ter um interpretador Python instalado. Os comandos usam diretamente o executável da venv; não é necessário ativá-la ou alterar a política de execução do PowerShell.
 
-`requirements.txt` descreve a API e o processamento básico; `requirements-retrieval.txt` adiciona ONNX Runtime e tokenizers; `requirements-dev.txt` inclui pytest. O comando acima instala o conjunto completo por `requirements-lock.txt`, com as versões efetivamente verificadas. Não são necessários conta, chave ou serviço pago.
+`requirements.txt` descreve a API e o processamento básico; `requirements-retrieval.txt` adiciona ONNX Runtime e tokenizers; `requirements-dev.txt` inclui pytest. O comando acima instala o conjunto completo com as versões de `requirements-lock.txt`. Não são necessários conta, chave ou serviço pago.
 
 ## API e simulação
 
@@ -112,4 +112,4 @@ Consulte o [progresso](PROGRESS.md), a [auditoria técnica](docs/AUDIT.md), o [r
 
 Próximo incremento: backend de LLM configurável, `/ask`, validação das citações e abstenção quando não houver suporte. A interface e a hospedagem de uma demonstração continuam pendentes.
 
-Use somente documentos públicos ou dados sintéticos. Não incluir arquivos empresariais, informações de clientes ou credenciais. Nenhum dado profissional privado é necessário para executar este projeto.
+O projeto usa documentos públicos e exemplos sintéticos.

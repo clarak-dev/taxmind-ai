@@ -1,37 +1,26 @@
-# Auditoria técnica — 11/11/2026
+# Estado do projeto
 
-## Escopo
+Atualizado em 11/11/2026.
 
-Revisão do TaxMind AI: contrato HTTP, simulador hipotético, documentos públicos e recuperação semântica. O histórico da primeira versão permanece em `PROGRESS.md`.
+| Componente | Situação |
+| --- | --- |
+| API | `/health`, `/simulate`, `/search`, `/sources` e OpenAPI disponíveis |
+| Simulador | Cálculo determinístico de cenários hipotéticos |
+| Ingestão | Três fontes oficiais, com metadados de origem |
+| Busca semântica | E5 quantizado na CPU, com 50 trechos indexados |
+| Avaliação de recuperação | Comparação inicial com TF-IDF em 16 perguntas |
+| Testes | 58 testes passando, além do teste da API com o modelo local |
+| Geração por LLM | Pendente |
+| Interface | Pendente |
 
-## Estado verificado
+## Limitações conhecidas
 
-| Item | Estado | Evidência |
-| --- | --- | --- |
-| API e OpenAPI | IMPLEMENTADO | `/health`, `/simulate`, `/search`, `/sources`, `/docs` e `/openapi.json`; HTTP real |
-| Simulador | IMPLEMENTADO no escopo hipotético | Decimal, validação de limites, arredondamento e aviso de limitações |
-| Ingestão e chunks | IMPLEMENTADO | Três fontes oficiais, metadados, hashes e offsets verificados |
-| Testes | IMPLEMENTADO | 58 casos aprovados em `reports/tests-retrieval.json`; sem download do modelo |
-| Embeddings e índice | IMPLEMENTADO no recorte inicial | E5 quantizado CPU, 50 chunks, três fontes, modelo e índice com hashes |
-| LLM e `/ask` | PENDENTE | Sem geração de respostas |
-| Avaliação de recuperação | IMPLEMENTADO como avaliação inicial | 16 perguntas, baseline TF-IDF e resultados por caso |
-| Avaliação de geração | PENDENTE | Nenhuma resposta por LLM avaliada |
-| Interface | PENDENTE | API disponível localmente, sem interface de perguntas |
+O índice cobre duas páginas da Receita e onze artigos da LC 214. Ele não inclui toda a lei nem resolve remissões para outros dispositivos. O recorte está em [retrieval_scope.json](../config/retrieval_scope.json) e pode ser consultado por `/sources`.
 
-Histórico de execução em [PROGRESS.md](../PROGRESS.md); entregas previstas no [roadmap](ROADMAP.md).
+A data de coleta não define a vigência de uma regra. As páginas explicativas podem ter orientações históricas, e os dispositivos legais têm efeitos em períodos diferentes.
 
-## Prioridades técnicas
+A busca retorna vizinhos mesmo quando a pergunta não tem resposta nos documentos. Similaridade alta não basta para decidir se há suporte. Esse comportamento será tratado junto com a geração por LLM.
 
-1. Escolher um backend de LLM compatível com os recursos disponíveis.
-2. Integrar geração com fontes verificáveis e abstenção quando faltar suporte.
-3. Avaliar afirmações, números, referências e perguntas sem resposta nos documentos.
-4. Criar uma interface simples para demonstrar perguntas, respostas e fontes.
+Os resultados de recuperação usam uma amostra pequena e rótulos por âncoras de texto. Ainda falta avaliar a fundamentação de respostas geradas.
 
-## Riscos observados e tratamento
-
-- Ambiente validado com Python 3.12.14 no Windows e dependências isoladas em venv. Versões registradas em `requirements-lock.txt`.
-- Planalto retornou página de bloqueio. A LC 214 foi coletada no portal oficial da Câmara.
-- Documentos oficiais podem conter histórico, ressalvas e efeitos futuros. Proveniência e escopo foram registrados; falta validação de vigência por artigo antes de responder sobre regras atuais.
-- A LC domina o corpus coletado. O índice inicial usa onze artigos, sem cobertura integral da lei ou de suas remissões. Esse recorte é exposto em `/sources`.
-- Perguntas sem evidência podem receber scores altos. Nenhum limiar de confiança ou recusa foi implementado.
-- Ainda não existe RAG completo com geração. Testes de API e avaliação de recuperação não comprovam qualidade de respostas geradas ou ausência de alucinação.
+Próximas entregas no [roadmap](ROADMAP.md); histórico em [PROGRESS.md](../PROGRESS.md).

@@ -15,14 +15,5 @@
     "fastapi": "0.162.4",
     "pytest": "9.2.0"
   },
-  "scope": "Offline contracts and algorithms; actual E5 inference is recorded separately in retrieval-evaluation.json and retrieval-api-smoke.json.",
-  "publication_snapshot": {
-    "files": 37,
-    "tests": 58,
-    "failures": 0,
-    "pytest_wall_seconds": 2.29,
-    "basic_http_smoke": "passed",
-    "model_files_included": false,
-    "index_files_included": false
-  }
+  "scope": "Offline contracts and algorithms; actual E5 inference is recorded separately in retrieval-evaluation.json and retrieval-api-smoke.json."
 }

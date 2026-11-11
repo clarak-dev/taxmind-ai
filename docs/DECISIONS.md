@@ -46,12 +46,12 @@ Para 50 vetores, NumPy permite busca exata simples e inspecionável. Produto int
 
 O baseline lexical calcula TF-IDF com log-TF e cosseno, ajustando o vocabulário somente nos documentos. Usa o mesmo recorte e top-k do E5. O conjunto de perguntas foi separado em desenvolvimento, teste e diagnósticos antes da primeira avaliação, sem calibrar limiar pelo teste.
 
-Nos oito casos de teste, E5 acertou a evidência esperada em primeiro lugar em cinco; TF-IDF, em quatro. Ambos acertaram entre os cinco primeiros em todos os oito. Três falhas de primeiro resultado do E5 ocorreram em incidência geral, vigência integral do modelo e extinção de tributos. A divisão atual gera alguns trechos curtos, que podem perder contexto; uma próxima revisão deve usar novas perguntas de desenvolvimento e manter os casos já examinados como regressão, sem apresentá-los como teste inédito.
+Nos oito casos de teste, E5 acertou a evidência esperada em primeiro lugar em cinco; TF-IDF, em quatro. Ambos acertaram entre os cinco primeiros em todos os oito. Três falhas de primeiro resultado do E5 ocorreram em incidência geral, vigência integral do modelo e extinção de tributos. A divisão atual gera alguns trechos curtos, que podem perder contexto; na próxima revisão, os casos já examinados servirão como regressão, e novas perguntas permitirão avaliar as mudanças.
 
 Perguntas sem suporte também receberam scores altos. Similaridade mede proximidade do embedding, não validade jurídica nem possibilidade de responder. Esta versão retorna candidatos e não implementa abstenção. A geração precisará conferir evidência, números e contexto, com avaliação própria.
 
 ## Custos, privacidade e operação
 
-A primeira entrega executa localmente e não envia perguntas a um provedor de IA. Dependências e documentos são baixados de fontes públicas. A próxima entrega deve comparar custo, memória, latência e capacidade em português antes de escolher backend. Não adicionar infraestrutura cloud apenas para ampliar a lista de tecnologias.
+A aplicação executa localmente. Na escolha do backend de geração, os principais critérios serão memória, latência, custo e qualidade em português.
 
 Antes de produção seriam necessários revisão de vigência, controle de atualização e índices, avaliação ampliada, observabilidade, limites de requisições, proteção contra instruções maliciosas nos documentos, política de dados e revisão humana de usos tributários. São pendências, não recursos implementados.
