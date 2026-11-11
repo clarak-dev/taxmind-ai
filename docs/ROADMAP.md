@@ -10,23 +10,24 @@ Embeddings E5 em ONNX, busca exata em NumPy e consulta de fontes por `/sources`.
 
 A cobertura integral da lei, as remissões e o tratamento de tabelas continuam pendentes. A escolha do recorte e do modelo está em [DECISIONS.md](DECISIONS.md).
 
-## Respostas com LLM — próxima etapa
+## Respostas com LLM — implementação inicial
 
-- [ ] Escolher um backend compatível com os recursos de execução.
-- [ ] Criar `/ask`, usando os trechos recuperados como contexto.
-- [ ] Incluir título, URL e trecho nas citações e conferir se correspondem às fontes.
-- [ ] Tratar perguntas fora do escopo ou sem evidência suficiente.
-- [ ] Avaliar suporte das afirmações, números, citações e latência.
+- [x] Integrar a Groq por HTTP com configuração local e saída estruturada.
+- [x] Criar `/ask`, usando os trechos recuperados como contexto.
+- [x] Conferir referências, trechos literais e números; montar fontes a partir do índice.
+- [x] Implementar decisão de abstenção e revisão das afirmações em uma segunda chamada.
+- [x] Testar contratos, falhas do provedor e descarte de rascunhos sem suporte com fixtures.
+- [ ] Executar a avaliação com LLM real e revisar suporte, abstenções, citações e latência.
 
 A entrega deve incluir uma pergunta respondida com fonte verificável e uma pergunta recusada por falta de suporte, usando o backend real.
 
 ## Demonstração — planejado
 
-Interface simples em Streamlit ou Gradio para explorar perguntas e fontes. A hospedagem depende da validação do backend e do consumo de recursos.
+Interface em Vue.js com TypeScript para perguntas, respostas e fontes, seguida do simulador existente. Exibir estados de espera, falta de suporte e indisponibilidade. A hospedagem depende da validação do backend, das cotas e do consumo de recursos. Cadastro e histórico privado ficam fora da primeira demonstração.
 
-## Série econômica — extensão futura
+## Série econômica — entrega planejada
 
-Explorar uma série pública com divisão cronológica, baseline e métricas de erro. Essa previsão ficará separada da simulação tributária e não será apresentada como efeito causal da reforma.
+Selecionar uma série pública pertinente ao mercado de alimentação, verificando cobertura, frequência e condições de reutilização no IBGE ou Banco Central. Começar com um único alvo, divisão cronológica, baseline sazonal e regressão com lags e calendário. Publicar MAE/RMSE observados e expor a inferência na API e na interface. Essa previsão ficará separada da simulação tributária e não será apresentada como efeito causal da reforma.
 
 ## Validação
 

@@ -1,11 +1,12 @@
 {
-  "checked_at": "2026-11-11T22:37:04.004792+00:00",
+  "checked_at": "2026-11-11T23:21:41.559720+00:00",
   "transport": "HTTP sobre loopback, Uvicorn em subprocesso temporário",
   "checks": {
     "health": "passed",
     "openapi": "passed",
     "docs": "passed",
     "simulate": "passed",
+    "ask_without_configuration": "passed",
     "sources": "passed",
     "semantic_search_real_model": "passed"
   },
@@ -171,7 +172,7 @@
     "model_id": "intfloat/multilingual-e5-small",
     "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
     "index_generation": "build-b042210f4cc146b284085e04afac177f",
-    "latency_ms": 35.191,
+    "latency_ms": 31.894,
     "notice": "Trechos candidatos por similaridade, sem resposta gerada. O score não é probabilidade de acerto nem comprovação de suporte. Vigência, exceções e remissões precisam ser verificadas; a LC 214 está indexada parcialmente."
   }
 }

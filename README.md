@@ -2,7 +2,7 @@
 
 Projeto educacional de engenharia de IA para consultar documentos públicos da Reforma Tributária do Consumo e comparar cenários hipotéticos.
 
-**Em desenvolvimento:** API, simulador determinístico, ingestão documental e recuperação semântica implementados. A busca retorna trechos oficiais com fontes; geração por LLM e interface continuam no [roadmap](docs/ROADMAP.md).
+**Em desenvolvimento:** API, simulador, ingestão, busca semântica e endpoint de respostas com LLM implementados. A integração de geração passou nos testes offline; a avaliação com o serviço real depende de configurar a chave local. Interface e previsão econômica continuam no [roadmap](docs/ROADMAP.md).
 
 ## Executar localmente
 
@@ -31,9 +31,10 @@ Abra http://127.0.0.1:8000/docs. Ingestão e primeiro download do modelo requere
 
 | Rota | Comportamento |
 | --- | --- |
-| `GET /health` | Estado da API e indicação explícita de RAG ainda não implementado |
+| `GET /health` | Estado da API e presença de configuração do LLM, sem testar conexão ou índice |
 | `POST /simulate` | Comparação de duas taxas hipotéticas sobre a mesma base sem tributo |
 | `POST /search` | Recuperação semântica top-k com trecho, seção, URL e metadados da fonte |
+| `POST /ask` | Resposta com afirmações citadas ou abstenção quando faltar suporte |
 | `GET /sources` | Fontes cadastradas, coletadas e efetivamente indexadas, com recorte explícito |
 | `GET /docs` e `/openapi.json` | Contrato e exploração da API |
 
@@ -91,7 +92,24 @@ A busca usa produto interno de vetores normalizados em NumPy, equivalente ao cos
 
 `/search` aceita pergunta de 3 a 500 caracteres e `top_k` de 1 a 10. Sem modelo ou índice válido, retorna HTTP 503. `/sources` pode listar o catálogo mesmo sem baixar o modelo. A inicialização da API e `/simulate` não carregam a sessão ONNX.
 
-**Similaridade não é confiança.** A busca sempre retorna vizinhos quando existe um índice, inclusive para perguntas fora do escopo. Não há resposta gerada, classificador de escopo ou recusa automática nesta versão.
+**Similaridade não é confiança.** `/search` sempre retorna vizinhos quando existe um índice, inclusive para perguntas fora do escopo. A decisão de responder e a revisão de suporte ficam em `/ask`.
+
+## Respostas com fontes
+
+O endpoint `/ask` usa a Groq com saída estruturada. O rascunho precisa citar trechos literais do índice; o código confere referências e números, e uma segunda chamada revisa o suporte das afirmações. A API monta as fontes com os metadados locais. Quando falta suporte, retorna `status=abstained` sem publicar o rascunho.
+
+Depois de preparar o índice, crie uma chave na [Groq](https://console.groq.com/keys), mantenha a conta no plano gratuito e execute em um terminal interativo:
+
+```powershell
+.\.venv\Scripts\python.exe -m scripts.configure_llm
+.\.venv\Scripts\python.exe -m uvicorn app.main:app --reload
+```
+
+O primeiro comando pede a chave sem exibi-la e cria `.env`, excluído do Git. Se o arquivo já existir, ele será preservado. Como alternativa, copie `.env.example` para `.env` e preencha `GROQ_API_KEY` no editor. A chave fica no servidor; não deve entrar no frontend.
+
+Abra `/docs` e envie a `/ask` uma pergunta como “A CBS é um tributo de competência de qual ente federativo?”. O resultado inclui resposta, afirmações, citações, razão da decisão, modelo e versão do prompt.
+
+A [documentação do RAG](docs/RAG.md) descreve configuração, contrato, erros e avaliação. **A validação com o provedor real ainda está pendente.** A revisão por LLM pode falhar mesmo quando as citações existem.
 
 ## Avaliação de recuperação
 
@@ -110,6 +128,6 @@ Relatórios: [avaliação por pergunta](reports/retrieval-evaluation.json), [ín
 
 Consulte o [progresso](PROGRESS.md), a [auditoria técnica](docs/AUDIT.md), o [roadmap](docs/ROADMAP.md) e as [decisões de arquitetura](docs/DECISIONS.md). Relatórios registram execuções observadas; a avaliação de geração ainda está pendente.
 
-Próximo incremento: backend de LLM configurável, `/ask`, validação das citações e abstenção quando não houver suporte. A interface e a hospedagem de uma demonstração continuam pendentes.
+Próximo incremento: concluir a avaliação com o provedor real e conectar uma interface Vue.js com TypeScript à API. A previsão de uma série econômica será uma entrega separada, com baseline e avaliação cronológica.
 
 O projeto usa documentos públicos e exemplos sintéticos.

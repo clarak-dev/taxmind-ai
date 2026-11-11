@@ -10,6 +10,7 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.request import ProxyHandler, Request, build_opener
+from urllib.error import HTTPError
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -17,6 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--retrieval", action="store_true", help="Também verifica modelo e índice reais.")
+    parser.add_argument("--rag", action="store_true", help="Também verifica /ask com o LLM externo real.")
     args = parser.parse_args()
     reports = ROOT / "reports"
     reports.mkdir(exist_ok=True)
@@ -65,7 +67,16 @@ def main() -> None:
                 "checks": {"health": "passed", "openapi": "passed", "docs": "passed", "simulate": "passed"},
                 "simulation": result,
             }
-            if args.retrieval:
+            if health["rag_status"] == "not_configured":
+                try:
+                    request("/ask", {"question": "O que é a CBS?"})
+                except HTTPError as exc:
+                    assert exc.code == 503
+                    assert "detail" in json.loads(exc.read())
+                    report["checks"]["ask_without_configuration"] = "passed"
+                else:
+                    raise AssertionError("/ask deveria indicar configuração ausente.")
+            if args.retrieval or args.rag:
                 status, body = request("/sources")
                 sources = json.loads(body)
                 assert status == 200 and sources["index_status"] == "validated"
@@ -80,13 +91,26 @@ def main() -> None:
                 assert "answer" not in search and "não é" in search["notice"]
                 report.update({"sources": sources, "search": search})
                 report["checks"].update({"sources": "passed", "semantic_search_real_model": "passed"})
-            destination = "retrieval-api-smoke.json" if args.retrieval else "api-smoke.json"
+            if args.rag:
+                status, body = request("/ask", {
+                    "question": "A CBS é um tributo de competência de qual ente federativo?",
+                }, timeout=100)
+                answer = json.loads(body)
+                assert status == 200 and answer["status"] == "answered"
+                assert answer["citations"] and all(citation["quote"] for citation in answer["citations"])
+                report["answer"] = answer
+                report["checks"]["rag_real_provider"] = "passed"
+            destination = "rag-api-smoke.json" if args.rag else "retrieval-api-smoke.json" if args.retrieval else "api-smoke.json"
             (reports / destination).write_text(
                 json.dumps(report, ensure_ascii=False, indent=2), "utf-8"
             )
             print("HTTP real: /health, /openapi.json, /docs e /simulate aprovados.")
-            if args.retrieval:
+            if args.retrieval or args.rag:
                 print("HTTP real: /sources e /search com embeddings ONNX aprovados.")
+            if args.rag:
+                print("HTTP real: /ask com LLM externo e fontes aprovados.")
+        except HTTPError as exc:
+            raise RuntimeError(f"HTTP {exc.code}: a verificação não foi concluída; confira a configuração e a cota do serviço.") from None
         finally:
             process.terminate()
             try:

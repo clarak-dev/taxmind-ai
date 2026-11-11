@@ -26,7 +26,7 @@ O `document_id` liga cada chunk aos metadados da fonte. Os offsets permitem conf
 
 O objetivo é recuperar trechos pertinentes de um corpus que pode mudar e fornecer evidências na resposta. Um prompt longo com todos os textos repetiria centenas de milhares de caracteres por pergunta e dificultaria a inspeção do trecho usado. Embeddings multilíngues são usados para comparar perguntas em português com o significado dos documentos.
 
-RAG não elimina alucinações. Recuperação pode selecionar o artigo errado ou uma orientação histórica; geração pode afirmar algo que a fonte não sustenta. Recuperação e suporte da resposta precisam de avaliações separadas. A etapa atual executa embeddings e busca; o LLM ainda não foi integrado.
+RAG não elimina alucinações. Recuperação pode selecionar o artigo errado ou uma orientação histórica; geração pode afirmar algo que a fonte não sustenta. Recuperação e suporte da resposta precisam de avaliações separadas. A geração em `/ask` usa os trechos recuperados com validação de citações e uma segunda chamada de revisão. A avaliação com o provedor real ainda está pendente.
 
 ## E5 quantizado em ONNX
 
@@ -48,7 +48,17 @@ O baseline lexical calcula TF-IDF com log-TF e cosseno, ajustando o vocabulário
 
 Nos oito casos de teste, E5 acertou a evidência esperada em primeiro lugar em cinco; TF-IDF, em quatro. Ambos acertaram entre os cinco primeiros em todos os oito. Três falhas de primeiro resultado do E5 ocorreram em incidência geral, vigência integral do modelo e extinção de tributos. A divisão atual gera alguns trechos curtos, que podem perder contexto; na próxima revisão, os casos já examinados servirão como regressão, e novas perguntas permitirão avaliar as mudanças.
 
-Perguntas sem suporte também receberam scores altos. Similaridade mede proximidade do embedding, não validade jurídica nem possibilidade de responder. Esta versão retorna candidatos e não implementa abstenção. A geração precisará conferir evidência, números e contexto, com avaliação própria.
+Perguntas sem suporte também receberam scores altos. Similaridade mede proximidade do embedding, não validade jurídica nem possibilidade de responder. `/search` retorna candidatos sem classificar o escopo; `/ask` decide se responde e revisa as evidências em outra chamada. Esses mecanismos precisam de avaliação própria com o modelo real.
+
+## Geração estruturada e fontes locais
+
+O cliente da Groq usa HTTPX e configuração no servidor. O modelo inicial, `qwen/qwen3.8-27b`, oferece saída estruturada e cota gratuita, mas é preview. O modelo pode ser substituído por outro compatível, mediante nova avaliação. Referência: [saídas estruturadas na Groq](https://console.groq.com/docs/structured-outputs).
+
+O LLM produz afirmações com citações literais e identificadores do índice. O servidor confere a existência dos trechos, os números e os percentuais, e monta títulos e URLs a partir dos metadados. Outra chamada revisa suporte e adequação à pergunta. Se qualquer etapa reprovar a evidência, o rascunho é descartado. A validação de referências é determinística; a revisão semântica é probabilística e usa o mesmo modelo, portanto pode compartilhar erros da geração.
+
+## Interface e modelo econômico
+
+A interface planejada usa Vue.js com TypeScript para apresentar respostas e fontes da FastAPI. A primeira demonstração não exige conta de usuário ou histórico privado. O módulo econômico começará com um único indicador público e validação cronológica, mantendo previsão estatística e simulação hipotética como operações distintas.
 
 ## Custos, privacidade e operação
 

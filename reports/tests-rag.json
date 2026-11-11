@@ -1,0 +1,32 @@
+{
+  "checked_at": "2026-11-11T23:22:28.252143+00:00",
+  "commands": [
+    ".\\.venv\\Scripts\\python.exe -m pytest -q --junitxml=reports/pytest.xml",
+    ".\\.venv\\Scripts\\python.exe scripts\\smoke_api.py --retrieval"
+  ],
+  "tests": {
+    "collected": 97,
+    "passed": 97,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "http_checks": {
+    "health": "passed",
+    "openapi": "passed",
+    "docs": "passed",
+    "simulate": "passed",
+    "ask_without_configuration": "passed",
+    "sources": "passed",
+    "semantic_search_real_model": "passed"
+  },
+  "llm_validation": {
+    "offline_contracts": "passed",
+    "real_provider": "not_run",
+    "reason": "Local provider configuration is pending."
+  },
+  "limitations": [
+    "Controlled model responses verify contracts and failure handling, not real generation quality.",
+    "The HTTP search check uses real local embeddings."
+  ]
+}

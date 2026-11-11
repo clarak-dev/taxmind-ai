@@ -8,7 +8,7 @@ VALID = {"base_amount": "100.00", "current_rate_percent": "10", "proposed_rate_p
 
 
 def test_health_and_documented_contract():
-    assert client.get("/health").json()["rag_status"] == "not_implemented"
+    assert client.get("/health").json()["rag_status"] in {"not_configured", "configured"}
     schema = client.get("/openapi.json").json()
     assert {"/health", "/simulate"} <= schema["paths"].keys()
     assert client.get("/docs").status_code == 200

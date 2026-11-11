@@ -1,5 +1,17 @@
 # Progresso
 
+## 11/11/2026 — Respostas com fontes
+
+O endpoint `/ask` integra a busca existente à Groq. As respostas são formadas por afirmações com evidências literais; título e URL vêm dos metadados do índice. O código confere referências e números, e outra chamada revisa o suporte das afirmações. Se faltar suporte, o rascunho é descartado.
+
+A chave é configurada localmente em `.env`. Falhas de credencial, cota, conexão ou formato retornam erros operacionais, sem se passar por respostas ou abstenções. A simulação e a busca continuam funcionando sem chave.
+
+Os 97 testes offline passaram. O teste HTTP também confirmou as rotas existentes com embeddings locais e o erro esperado em `/ask` sem configuração. A execução está registrada em [reports/tests-rag.json](reports/tests-rag.json).
+
+A avaliação com o provedor real ainda está pendente. Os comandos de configuração e avaliação estão em [docs/RAG.md](docs/RAG.md). A revisão usa o mesmo modelo da geração e pode compartilhar seus erros; a existência de uma citação não comprova que ela sustenta a interpretação.
+
+Depois da avaliação, a próxima entrega será a interface Vue.js com TypeScript. O módulo econômico começará com uma série pública e validação cronológica.
+
 ## 11/11/2026 — Busca semântica
 
 A API agora permite buscar trechos dos documentos com `/search` e consultar as fontes disponíveis em `/sources`.
