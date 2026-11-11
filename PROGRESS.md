@@ -58,3 +58,5 @@ Revisar segmentação por artigo/seção, testar embeddings multilíngues e recu
 Documentação revisada para descrever o escopo técnico, instruções de execução e limitações. Arquivos pessoais, notas locais, ambiente virtual, snapshots, corpus gerado e logs são excluídos do versionamento. A publicação inclui código, testes, dependências, catálogo de fontes e relatórios das execuções verificadas.
 
 Uma cópia contendo somente os 22 arquivos selecionados para publicação foi validada: 38 testes passaram em 1,43 s, com o mesmo aviso de depreciação registrado na primeira execução. O smoke com HTTP real passou para as quatro rotas verificadas. A revisão do conteúdo selecionado não identificou credenciais ou caminhos pessoais.
+
+Repositório público: [clarak-dev/taxmind-ai](https://github.com/clarak-dev/taxmind-ai), branch `main`. Após o envio, os 22 arquivos remotos foram comparados com os hashes locais. O acesso à página e ao README foi confirmado sem autenticação. A publicação disponibiliza o código; a demonstração hospedada e o RAG completo continuam pendentes.
