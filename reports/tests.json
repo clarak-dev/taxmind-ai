@@ -1,0 +1,13 @@
+{
+  "recorded_at": "2026-11-11T22:08:22.145812+00:00",
+  "command": ".venv/Scripts/python.exe -m pytest -q --junitxml=reports/pytest.xml",
+  "python": "3.12.14",
+  "platform": "Windows",
+  "tests": 38,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "duration_seconds": 1.848,
+  "warning": "StarletteDeprecationWarning: TestClient com httpx; dependência recomenda migração futura para httpx2. Os testes passaram.",
+  "scope": "API, simulador e ingestão com fixtures técnicas. Não mede qualidade de retrieval ou geração."
+}

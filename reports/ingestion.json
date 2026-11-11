@@ -1,0 +1,69 @@
+{
+  "collected_at": "2026-11-11T22:05:10.809744+00:00",
+  "document_count": 3,
+  "chunk_count": 1012,
+  "documents": [
+    {
+      "id": "rfb-entenda",
+      "title": "Entenda a Reforma Tributária do Consumo",
+      "publisher": "Receita Federal do Brasil",
+      "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+      "selector": "#content-core",
+      "expected_text": "CBS",
+      "temporal_scope": "Página explicativa com cronograma de transição; verificar atualização na coleta.",
+      "legal_validity": "Material explicativo, sem força normativa própria. Conferir dispositivos e produção de efeitos na legislação.",
+      "document_id": "rfb-entenda:1f23ca463889b4ac",
+      "final_url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+      "accessed_at": "2026-11-11T22:05:05.524310+00:00",
+      "raw_sha256": "bfbb975a6f6ef4cc83b95a792dd3e8a60192554c52ff49535fc73e8667b36b6a",
+      "text_sha256": "1f23ca463889b4acd1628e97c9215e6d17139cfb646613c1cfc2786027db2e77",
+      "last_modified": null,
+      "etag": null,
+      "raw_path": "raw/rfb-entenda/bfbb975a6f6ef4cc83b95a792dd3e8a60192554c52ff49535fc73e8667b36b6a.html",
+      "chunk_count": 7
+    },
+    {
+      "id": "rfb-comunicado-2026",
+      "title": "Comunicado Conjunto: entrada em vigor da CBS e do IBS em 2026",
+      "publisher": "Receita Federal do Brasil e Comitê Gestor do IBS",
+      "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2025/dezembro/comunicado-conjunto",
+      "selector": "#content-core",
+      "expected_text": "2026",
+      "temporal_scope": "Orientações publicadas em dezembro de 2025 para fatos geradores de 2026; podem existir atos posteriores.",
+      "legal_validity": "Comunicado explicativo. Não presumir que substitui legislação ou atos posteriores.",
+      "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+      "final_url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2025/dezembro/comunicado-conjunto",
+      "accessed_at": "2026-11-11T22:05:08.238188+00:00",
+      "raw_sha256": "37a77650826bfb934c616d304c3d7188d60e50a08dda1987194e3e6e38cbdba4",
+      "text_sha256": "cfb617cb5ca5b7cf70e30ea039f98d390c293691c69bfb7f897b9efdd09ba413",
+      "last_modified": null,
+      "etag": null,
+      "raw_path": "raw/rfb-comunicado-2026/37a77650826bfb934c616d304c3d7188d60e50a08dda1987194e3e6e38cbdba4.html",
+      "chunk_count": 6
+    },
+    {
+      "id": "lc214-atualizada",
+      "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+      "publisher": "Câmara dos Deputados — Centro de Documentação e Informação",
+      "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+      "selector": "body",
+      "expected_text": "Art. 1",
+      "temporal_scope": "Texto atualizado disponibilizado pela Câmara na data da coleta; há alterações e efeitos escalonados.",
+      "legal_validity": "Verificar cláusulas de vigência e produção de efeitos por dispositivo. A data de publicação não é vigência uniforme de todos os artigos.",
+      "document_id": "lc214-atualizada:4392efe254937f3d",
+      "final_url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+      "accessed_at": "2026-11-11T22:05:10.762030+00:00",
+      "raw_sha256": "dc87a43e7a4c293bc3c47817754286438db33a7c42472eb0400258e7707a2bde",
+      "text_sha256": "4392efe254937f3d0ef64982bbac8434131ef1e909cba8266cab606a64c9c882",
+      "last_modified": null,
+      "etag": null,
+      "raw_path": "raw/lc214-atualizada/dc87a43e7a4c293bc3c47817754286438db33a7c42472eb0400258e7707a2bde.html",
+      "chunk_count": 999
+    }
+  ],
+  "limitations": [
+    "Coleta não atesta vigência jurídica de cada dispositivo.",
+    "Chunks por caracteres ainda precisam de segmentação por artigo/seção.",
+    "Sem embeddings, recuperação semântica ou geração por LLM nesta etapa."
+  ]
+}

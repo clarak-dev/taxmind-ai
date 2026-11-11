@@ -1,0 +1,28 @@
+{
+  "checked_at": "2026-11-11T22:08:24.697865+00:00",
+  "transport": "HTTP sobre loopback, Uvicorn em subprocesso temporário",
+  "checks": {
+    "health": "passed",
+    "openapi": "passed",
+    "docs": "passed",
+    "simulate": "passed"
+  },
+  "simulation": {
+    "currency": "BRL",
+    "base_amount": "100.00",
+    "current": {
+      "rate_percent": "10",
+      "tax_amount": "10.00",
+      "total_amount": "110.00"
+    },
+    "proposed": {
+      "rate_percent": "15",
+      "tax_amount": "15.00",
+      "total_amount": "115.00"
+    },
+    "tax_difference": "5.00",
+    "formula": "tributo = base_amount × rate_percent / 100; total = base + tributo",
+    "rounding": "Tributo arredondado para centavos com ROUND_HALF_UP.",
+    "disclaimer": "Cenário hipotético e educacional. As taxas são informadas pelo usuário; o cálculo não determina carga tributária real nem constitui orientação tributária. Não considera créditos, regimes especiais, transição ou incidência por produto."
+  }
+}

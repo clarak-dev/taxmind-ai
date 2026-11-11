@@ -1,0 +1,32 @@
+[
+  {
+    "id": "rfb-entenda",
+    "title": "Entenda a Reforma Tributária do Consumo",
+    "publisher": "Receita Federal do Brasil",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+    "selector": "#content-core",
+    "expected_text": "CBS",
+    "temporal_scope": "Página explicativa com cronograma de transição; verificar atualização na coleta.",
+    "legal_validity": "Material explicativo, sem força normativa própria. Conferir dispositivos e produção de efeitos na legislação."
+  },
+  {
+    "id": "rfb-comunicado-2026",
+    "title": "Comunicado Conjunto: entrada em vigor da CBS e do IBS em 2026",
+    "publisher": "Receita Federal do Brasil e Comitê Gestor do IBS",
+    "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2025/dezembro/comunicado-conjunto",
+    "selector": "#content-core",
+    "expected_text": "2026",
+    "temporal_scope": "Orientações publicadas em dezembro de 2025 para fatos geradores de 2026; podem existir atos posteriores.",
+    "legal_validity": "Comunicado explicativo. Não presumir que substitui legislação ou atos posteriores."
+  },
+  {
+    "id": "lc214-atualizada",
+    "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+    "publisher": "Câmara dos Deputados — Centro de Documentação e Informação",
+    "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+    "selector": "body",
+    "expected_text": "Art. 1",
+    "temporal_scope": "Texto atualizado disponibilizado pela Câmara na data da coleta; há alterações e efeitos escalonados.",
+    "legal_validity": "Verificar cláusulas de vigência e produção de efeitos por dispositivo. A data de publicação não é vigência uniforme de todos os artigos."
+  }
+]
