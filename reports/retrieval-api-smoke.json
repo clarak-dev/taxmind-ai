@@ -1,0 +1,177 @@
+{
+  "checked_at": "2026-11-11T22:37:04.004792+00:00",
+  "transport": "HTTP sobre loopback, Uvicorn em subprocesso temporário",
+  "checks": {
+    "health": "passed",
+    "openapi": "passed",
+    "docs": "passed",
+    "simulate": "passed",
+    "sources": "passed",
+    "semantic_search_real_model": "passed"
+  },
+  "simulation": {
+    "currency": "BRL",
+    "base_amount": "100.00",
+    "current": {
+      "rate_percent": "10",
+      "tax_amount": "10.00",
+      "total_amount": "110.00"
+    },
+    "proposed": {
+      "rate_percent": "15",
+      "tax_amount": "15.00",
+      "total_amount": "115.00"
+    },
+    "tax_difference": "5.00",
+    "formula": "tributo = base_amount × rate_percent / 100; total = base + tributo",
+    "rounding": "Tributo arredondado para centavos com ROUND_HALF_UP.",
+    "disclaimer": "Cenário hipotético e educacional. As taxas são informadas pelo usuário; o cálculo não determina carga tributária real nem constitui orientação tributária. Não considera créditos, regimes especiais, transição ou incidência por produto."
+  },
+  "sources": {
+    "index_status": "validated",
+    "scope": {
+      "version": "articles-v1",
+      "max_characters": 900,
+      "overlap_characters": 120,
+      "sources": {
+        "rfb-entenda": {
+          "mode": "full_text"
+        },
+        "rfb-comunicado-2026": {
+          "mode": "full_text"
+        },
+        "lc214-atualizada": {
+          "mode": "selected_articles",
+          "articles": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "343",
+            "344",
+            "345",
+            "346",
+            "347",
+            "348",
+            "544"
+          ]
+        }
+      },
+      "description": "Escopo inicial: conceitos, incidência geral e dispositivos selecionados de transição. A LC 214 não é indexada integralmente; remissões e exceções podem exigir artigos fora deste recorte."
+    },
+    "sources": [
+      {
+        "id": "rfb-entenda",
+        "title": "Entenda a Reforma Tributária do Consumo",
+        "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+        "collected": true,
+        "accessed_at": "2026-11-11T22:05:05.524310+00:00",
+        "indexed_chunks": 20,
+        "legal_validity": "Material explicativo, sem força normativa própria. Conferir dispositivos e produção de efeitos na legislação."
+      },
+      {
+        "id": "rfb-comunicado-2026",
+        "title": "Comunicado Conjunto: entrada em vigor da CBS e do IBS em 2026",
+        "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2025/dezembro/comunicado-conjunto",
+        "collected": true,
+        "accessed_at": "2026-11-11T22:05:08.238188+00:00",
+        "indexed_chunks": 11,
+        "legal_validity": "Comunicado explicativo. Não presumir que substitui legislação ou atos posteriores."
+      },
+      {
+        "id": "lc214-atualizada",
+        "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+        "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+        "collected": true,
+        "accessed_at": "2026-11-11T22:05:10.762030+00:00",
+        "indexed_chunks": 19,
+        "legal_validity": "Verificar cláusulas de vigência e produção de efeitos por dispositivo. A data de publicação não é vigência uniforme de todos os artigos."
+      }
+    ]
+  },
+  "search": {
+    "question": "O que é a CBS e de quem é sua competência?",
+    "results": [
+      {
+        "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:935-1204",
+        "document_id": "lc214-atualizada:4392efe254937f3d",
+        "source_id": "lc214-atualizada",
+        "section": "Art. 2",
+        "score": 0.8711869716644287,
+        "text": "Art.\n2º O IBS e a CBS são informados pelo princípio da neutralidade,\nsegundo o qual esses tributos devem evitar distorcer as decisões de\nconsumo e de organização da atividade econômica, observadas as\nexceções previstas na Constituição Federal e nesta Lei\nComplementar.\n",
+        "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+        "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+        "accessed_at": "2026-11-11T22:05:10.762030+00:00",
+        "temporal_scope": "Texto atualizado disponibilizado pela Câmara na data da coleta; há alterações e efeitos escalonados.",
+        "legal_validity": "Verificar cláusulas de vigência e produção de efeitos por dispositivo. A data de publicação não é vigência uniforme de todos os artigos.",
+        "start_char": 935,
+        "end_char": 1204
+      },
+      {
+        "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:455814-456239",
+        "document_id": "lc214-atualizada:4392efe254937f3d",
+        "source_id": "lc214-atualizada",
+        "section": "Art. 345",
+        "score": 0.8623650670051575,
+        "text": "Art.\n345. A transição para a CBS atenderá aos critérios estabelecidos\nnesta Seção e nos seguintes dispositivos:\nI\n- arts. 353 a 359 desta Lei Complementar, no que diz respeito à\nfixação da alíquota de referência da CBS de 2027 a 2033,\nobservado o disposto no art. 368 para o período de 2030 a 2033; e\nII\n- arts. 366 e 369 desta Lei Complementar, no que diz respeito à\nfixação da alíquota de referência da CBS em 2034 e 2035.\n",
+        "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+        "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+        "accessed_at": "2026-11-11T22:05:10.762030+00:00",
+        "temporal_scope": "Texto atualizado disponibilizado pela Câmara na data da coleta; há alterações e efeitos escalonados.",
+        "legal_validity": "Verificar cláusulas de vigência e produção de efeitos por dispositivo. A data de publicação não é vigência uniforme de todos os artigos.",
+        "start_char": 455814,
+        "end_char": 456239
+      },
+      {
+        "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:586-935",
+        "document_id": "lc214-atualizada:4392efe254937f3d",
+        "source_id": "lc214-atualizada",
+        "section": "Art. 1",
+        "score": 0.8581691384315491,
+        "text": "Art.\n1º Ficam instituídos:\nI\n- o Imposto sobre Bens e Serviços (IBS), de competência\ncompartilhada entre Estados, Municípios e Distrito Federal, de que\ntrata o art. 156-A da Constituição Federal; e\nII\n- a Contribuição Social sobre Bens e Serviços (CBS), de\ncompetência da União, de que trata o inciso V do\ncaput\ndo art. 195 da Constituição Federal.\n",
+        "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+        "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+        "accessed_at": "2026-11-11T22:05:10.762030+00:00",
+        "temporal_scope": "Texto atualizado disponibilizado pela Câmara na data da coleta; há alterações e efeitos escalonados.",
+        "legal_validity": "Verificar cláusulas de vigência e produção de efeitos por dispositivo. A data de publicação não é vigência uniforme de todos os artigos.",
+        "start_char": 586,
+        "end_char": 935
+      },
+      {
+        "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:4336-4664",
+        "document_id": "rfb-entenda:1f23ca463889b4ac",
+        "source_id": "rfb-entenda",
+        "section": "2026",
+        "score": 0.857290506362915,
+        "text": "2026\nAno teste da CBS e do IBS;\nO montante arrecadado da CBS (0,9%) e do IBS (0,1%) será compensado com o valor devido de PIS e COFINS, no mesmo período de liquidação;\nFicará isenta a arrecadação da taxa de prova da CBS e do IBS, em 2026, para os contribuintes que cumprirem com as obrigações acessórias, conforme a legislação.\n",
+        "title": "Entenda a Reforma Tributária do Consumo",
+        "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+        "accessed_at": "2026-11-11T22:05:05.524310+00:00",
+        "temporal_scope": "Página explicativa com cronograma de transição; verificar atualização na coleta.",
+        "legal_validity": "Material explicativo, sem força normativa própria. Conferir dispositivos e produção de efeitos na legislação.",
+        "start_char": 4336,
+        "end_char": 4664
+      },
+      {
+        "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:560-1459",
+        "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+        "source_id": "rfb-comunicado-2026",
+        "section": "1. Obrigações a partir de 2026",
+        "score": 0.8535362482070923,
+        "text": "1. Obrigações a partir de 2026\nA partir de 1º de janeiro de 2026, os contribuintes estarão obrigados a:\n• Emitir documentos fiscais eletrônicos com destaque da CBS e do IBS, individualizados por operação, conforme as regras e leiautes definidos em Notas Técnicas específicas de cada documento;\n• Apresentar, quando disponibilizadas, as Declarações dos Regimes Específicos – DeRE, conforme as regras e leiautes definidos em Documento Técnico específico de cada documento;\n• Apresentar, quando disponibilizadas, as declarações e/ou documentos fiscais de plataformas digitais, conforme as regras e leiautes definidos em Documento Técnico específico de cada documento.\nA partir de julho de 2026, as pessoas físicas que sejam contribuintes da CBS e do IBS, deverão se inscrever no CNPJ. A inscrição no CNPJ não transforma a pessoa física em jurídica, servindo apenas para facilitar a apuração do IBS e da",
+        "title": "Comunicado Conjunto: entrada em vigor da CBS e do IBS em 2026",
+        "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2025/dezembro/comunicado-conjunto",
+        "accessed_at": "2026-11-11T22:05:08.238188+00:00",
+        "temporal_scope": "Orientações publicadas em dezembro de 2025 para fatos geradores de 2026; podem existir atos posteriores.",
+        "legal_validity": "Comunicado explicativo. Não presumir que substitui legislação ou atos posteriores.",
+        "start_char": 560,
+        "end_char": 1459
+      }
+    ],
+    "model_id": "intfloat/multilingual-e5-small",
+    "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+    "index_generation": "build-b042210f4cc146b284085e04afac177f",
+    "latency_ms": 35.191,
+    "notice": "Trechos candidatos por similaridade, sem resposta gerada. O score não é probabilidade de acerto nem comprovação de suporte. Vigência, exceções e remissões precisam ser verificadas; a LC 214 está indexada parcialmente."
+  }
+}

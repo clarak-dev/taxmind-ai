@@ -1,0 +1,14 @@
+{
+  "version": "articles-v1",
+  "max_characters": 900,
+  "overlap_characters": 120,
+  "sources": {
+    "rfb-entenda": {"mode": "full_text"},
+    "rfb-comunicado-2026": {"mode": "full_text"},
+    "lc214-atualizada": {
+      "mode": "selected_articles",
+      "articles": ["1", "2", "3", "4", "343", "344", "345", "346", "347", "348", "544"]
+    }
+  },
+  "description": "Escopo inicial: conceitos, incidência geral e dispositivos selecionados de transição. A LC 214 não é indexada integralmente; remissões e exceções podem exigir artigos fora deste recorte."
+}

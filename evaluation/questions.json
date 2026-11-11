@@ -1,0 +1,89 @@
+{
+  "version": "retrieval-v1",
+  "labeling": "Perguntas e âncoras selecionadas por inspeção dos documentos coletados antes da primeira execução desta avaliação. Conjunto pequeno, sem representatividade estatística. Âncoras são rótulos parciais de relevância, não respostas tributárias.",
+  "cases": [
+    {
+      "id": "dev-cbs-competencia", "split": "development", "category": "in_scope",
+      "question": "A CBS é um tributo de competência de qual ente federativo?",
+      "evidence": [{"alternatives": [
+        {"source_id": "lc214-atualizada", "section": "Art. 1", "anchor": "competência da União"},
+        {"source_id": "rfb-entenda", "anchor": "Contribuição sobre Bens e Serviços (Federal)"}
+      ]}]
+    },
+    {
+      "id": "dev-neutralidade", "split": "development", "category": "in_scope",
+      "question": "O que o princípio da neutralidade procura evitar nas decisões de consumo?",
+      "evidence": [{"alternatives": [
+        {"source_id": "lc214-atualizada", "section": "Art. 2", "anchor": "evitar distorcer as decisões de consumo"}
+      ]}]
+    },
+    {
+      "id": "dev-cbs-2026", "split": "development", "category": "numeric",
+      "question": "Qual alíquota de CBS está prevista no artigo 346 para os fatos geradores de 2026?",
+      "evidence": [{"alternatives": [
+        {"source_id": "lc214-atualizada", "section": "Art. 346", "anchor": "0,9%"}
+      ]}]
+    },
+    {
+      "id": "test-ibs-2026", "split": "test", "category": "numeric",
+      "question": "Qual percentual estadual de IBS o artigo 343 estabelece para 2026?",
+      "evidence": [{"alternatives": [
+        {"source_id": "lc214-atualizada", "section": "Art. 343", "anchor": "0,1%"}
+      ]}]
+    },
+    {
+      "id": "test-ibs-2027", "split": "test", "category": "numeric",
+      "question": "Quais percentuais estaduais e municipais do IBS constam do artigo 344 para 2027 e 2028?",
+      "evidence": [{"alternatives": [
+        {"source_id": "lc214-atualizada", "section": "Art. 344", "anchor": "alíquota municipal de 0,05%"}
+      ]}]
+    },
+    {
+      "id": "test-incidencia", "split": "test", "category": "in_scope",
+      "question": "Operações remuneradas com bens ou serviços estão na incidência geral do IBS e da CBS?",
+      "evidence": [{"alternatives": [
+        {"source_id": "lc214-atualizada", "section": "Art. 4", "anchor": "operações onerosas com bens ou com serviços"}
+      ]}]
+    },
+    {
+      "id": "test-fornecedor", "split": "test", "category": "in_scope",
+      "question": "Uma pessoa física que realiza fornecimentos também pode ser considerada fornecedora?",
+      "evidence": [{"alternatives": [
+        {"source_id": "lc214-atualizada", "section": "Art. 3", "anchor": "fornecedor: pessoa física ou jurídica"}
+      ]}]
+    },
+    {
+      "id": "test-documentos", "split": "test", "category": "in_scope",
+      "question": "Segundo o comunicado sobre 2026, como CBS e IBS devem aparecer nos documentos fiscais eletrônicos?",
+      "evidence": [{"alternatives": [
+        {"source_id": "rfb-comunicado-2026", "anchor": "individualizados por operação"}
+      ]}]
+    },
+    {
+      "id": "test-modelo-integral", "split": "test", "category": "numeric",
+      "question": "Em que ano o cronograma da Receita prevê vigência integral do novo modelo?",
+      "evidence": [{"alternatives": [
+        {"source_id": "rfb-entenda", "section": "2033", "anchor": "Vigência integral do novo modelo"}
+      ]}]
+    },
+    {
+      "id": "test-extincao", "split": "test", "category": "in_scope",
+      "question": "Quais tributos o cronograma da Receita indica que serão extintos em 2033?",
+      "evidence": [{"alternatives": [
+        {"source_id": "rfb-entenda", "section": "2033", "anchor": "Extinção do ICMS e do ISS"}
+      ]}]
+    },
+    {
+      "id": "test-compensacao", "split": "test", "category": "in_scope",
+      "question": "O artigo 348 permite compensar o montante recolhido do IBS e da CBS em 2026?",
+      "evidence": [{"alternatives": [
+        {"source_id": "lc214-atualizada", "section": "Art. 348", "anchor": "será compensado com o valor devido"}
+      ]}]
+    },
+    {"id": "ood-receita", "split": "diagnostic", "category": "out_of_scope", "question": "Como preparar um bolo de cenoura com cobertura de chocolate?", "evidence": []},
+    {"id": "ood-clima", "split": "diagnostic", "category": "out_of_scope", "question": "Vai chover amanhã em Recife?", "evidence": []},
+    {"id": "ood-geografia", "split": "diagnostic", "category": "out_of_scope", "question": "Qual é a capital do Japão?", "evidence": []},
+    {"id": "insufficient-personal", "split": "diagnostic", "category": "insufficient_documents", "question": "Qual será o valor exato dos tributos da minha empresa em 2027?", "evidence": []},
+    {"id": "insufficient-future", "split": "diagnostic", "category": "insufficient_documents", "question": "Qual é a alíquota definitiva conjunta de IBS e CBS para todas as operações em 2035?", "evidence": []}
+  ]
+}

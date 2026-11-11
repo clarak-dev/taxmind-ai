@@ -1,0 +1,2637 @@
+{
+  "evaluated_at": "2026-11-11T22:39:50.031165+00:00",
+  "dataset_sha256": "8a0e10da01181dd5195fda186805066e7614764f3bcdec540e007d4e3952f38a",
+  "dataset_version": "retrieval-v1",
+  "model": {
+    "model_id": "intfloat/multilingual-e5-small",
+    "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+    "license": "MIT",
+    "model_card": "https://huggingface.co/intfloat/multilingual-e5-small",
+    "backend": "onnxruntime-cpu-qint8",
+    "dimensions": 384,
+    "max_tokens": 512,
+    "pooling": "attention-mask-mean",
+    "normalization": "L2",
+    "prefixes": {
+      "query": "query: ",
+      "passage": "passage: "
+    },
+    "files": {
+      "model.onnx": {
+        "remote_path": "onnx/model_qint8_avx512_vnni.onnx",
+        "bytes": 118346824,
+        "sha256": "dd476dd0c2514e9b9be83aeb3853fac0763e0bdf4a71645407587d77c48a2d88"
+      },
+      "tokenizer.json": {
+        "remote_path": "tokenizer.json",
+        "bytes": 17082730,
+        "sha256": "0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39"
+      }
+    }
+  },
+  "corpus_sha256": "7b4f81ea2536924ffebc59de784c7abe3450fe34aad0a58dc5cfef4b988f3afe",
+  "scope_sha256": "be519fdcbd6673dd493d45c48a668e4325b48bdc6d3558b59d7966419dbf6fff",
+  "index_generation": "build-b042210f4cc146b284085e04afac177f",
+  "chunk_count": 50,
+  "question_count": 16,
+  "model_load_seconds": 2.356,
+  "provenance_checks": {
+    "checked_hits": 80,
+    "all_passed": true
+  },
+  "summary": {
+    "semantic": {
+      "development": {
+        "questions": 3,
+        "hit@1": 1,
+        "evidence_recall@1": 1.0,
+        "reciprocal_rank@1": 1.0,
+        "hit@3": 1,
+        "evidence_recall@3": 1.0,
+        "reciprocal_rank@3": 1.0,
+        "hit@5": 1,
+        "evidence_recall@5": 1.0,
+        "reciprocal_rank@5": 1.0
+      },
+      "test": {
+        "questions": 8,
+        "hit@1": 0.625,
+        "evidence_recall@1": 0.625,
+        "reciprocal_rank@1": 0.625,
+        "hit@3": 0.875,
+        "evidence_recall@3": 0.875,
+        "reciprocal_rank@3": 0.75,
+        "hit@5": 1,
+        "evidence_recall@5": 1.0,
+        "reciprocal_rank@5": 0.78125
+      }
+    },
+    "lexical_tfidf": {
+      "development": {
+        "questions": 3,
+        "hit@1": 0.6666666666666666,
+        "evidence_recall@1": 0.6666666666666666,
+        "reciprocal_rank@1": 0.6666666666666666,
+        "hit@3": 1,
+        "evidence_recall@3": 1.0,
+        "reciprocal_rank@3": 0.8333333333333334,
+        "hit@5": 1,
+        "evidence_recall@5": 1.0,
+        "reciprocal_rank@5": 0.8333333333333334
+      },
+      "test": {
+        "questions": 8,
+        "hit@1": 0.5,
+        "evidence_recall@1": 0.5,
+        "reciprocal_rank@1": 0.5,
+        "hit@3": 0.875,
+        "evidence_recall@3": 0.875,
+        "reciprocal_rank@3": 0.6666666666666666,
+        "hit@5": 1,
+        "evidence_recall@5": 1.0,
+        "reciprocal_rank@5": 0.6979166666666666
+      }
+    }
+  },
+  "semantic_latency_ms": {
+    "median": 12.6675,
+    "maximum": 40.459
+  },
+  "scope": {
+    "version": "articles-v1",
+    "max_characters": 900,
+    "overlap_characters": 120,
+    "sources": {
+      "rfb-entenda": {
+        "mode": "full_text"
+      },
+      "rfb-comunicado-2026": {
+        "mode": "full_text"
+      },
+      "lc214-atualizada": {
+        "mode": "selected_articles",
+        "articles": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "343",
+          "344",
+          "345",
+          "346",
+          "347",
+          "348",
+          "544"
+        ]
+      }
+    },
+    "description": "Escopo inicial: conceitos, incidência geral e dispositivos selecionados de transição. A LC 214 não é indexada integralmente; remissões e exceções podem exigir artigos fora deste recorte."
+  },
+  "cases": [
+    {
+      "id": "dev-cbs-competencia",
+      "split": "development",
+      "category": "in_scope",
+      "question": "A CBS é um tributo de competência de qual ente federativo?",
+      "evidence": [
+        {
+          "alternatives": [
+            {
+              "source_id": "lc214-atualizada",
+              "section": "Art. 1",
+              "anchor": "competência da União"
+            },
+            {
+              "source_id": "rfb-entenda",
+              "anchor": "Contribuição sobre Bens e Serviços (Federal)"
+            }
+          ]
+        }
+      ],
+      "semantic_latency_ms": 40.459,
+      "lexical_latency_ms": 0.452,
+      "metrics": {
+        "semantic": {
+          "1": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "3": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "5": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          }
+        },
+        "lexical_tfidf": {
+          "1": {
+            "hit": 0,
+            "evidence_recall": 0.0,
+            "reciprocal_rank": 0
+          },
+          "3": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 0.5
+          },
+          "5": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 0.5
+          }
+        }
+      },
+      "semantic": [
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:12-188",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "Tributos que passarão a existir:",
+          "score": 0.8794018030166626,
+          "start_char": 12,
+          "end_char": 188,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "c9baa0cc94f1ce1f3cd04c9b72dca623812f4add762e2fb5b1b1b28fed254663"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:935-1204",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 2",
+          "score": 0.8773159980773926,
+          "start_char": 935,
+          "end_char": 1204,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "b8eae9371b350dd599626ab9b934896cacf7c0f6ec6186b369fcbbfb0736100b"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:455814-456239",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 345",
+          "score": 0.8635861873626709,
+          "start_char": 455814,
+          "end_char": 456239,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "7335447fcd6a3193e7253f0cebb1b11f86b45d838493234d0d4098fa5fd391fb"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:456239-456417",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 346",
+          "score": 0.8631526231765747,
+          "start_char": 456239,
+          "end_char": 456417,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "5175f6006a68ff59c75e5184529071608b034c04c24b695c51d213b712146bca"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:455361-455814",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 344",
+          "score": 0.8612552881240845,
+          "start_char": 455361,
+          "end_char": 455814,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "32db2a217092e37eb8a1b3b389cb4413d9744d07d82875c6aa084490bed9f390"
+        }
+      ],
+      "lexical_tfidf": [
+        {
+          "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:2241-2409",
+          "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+          "source_id": "rfb-comunicado-2026",
+          "section": "2. Obrigações Acessórias",
+          "score": 0.22339048869754685,
+          "start_char": 2241,
+          "end_char": 2409,
+          "text_sha256": "8a12c9f2b466566a4e842dc8b91b25b685c513fc20d4769e663fe9a9f94b2092"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:586-935",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 1",
+          "score": 0.18135963236282565,
+          "start_char": 586,
+          "end_char": 935,
+          "text_sha256": "c6a53e1bddd40cccae543996b450c2afe17d1bf1012b75e6fd292fa71dba6c1b"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:1451-2038",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "1. Objetivos da Reforma Tributária do Consumo",
+          "score": 0.12611931027929726,
+          "start_char": 1451,
+          "end_char": 2038,
+          "text_sha256": "bd556dfc6d5e4be7d93e024145ea9302fe4e888a01a2e9d783dcfe29f9c4d068"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:3894-4326",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "5. Conclusão",
+          "score": 0.11977943873938793,
+          "start_char": 3894,
+          "end_char": 4326,
+          "text_sha256": "7107d4d1a4d8176815363d3878a4995aa4e6ae52bbe2cd74e661a8beb4561f05"
+        },
+        {
+          "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:1465-2361",
+          "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+          "source_id": "rfb-comunicado-2026",
+          "section": "2. Obrigações Acessórias",
+          "score": 0.11280743532188793,
+          "start_char": 1465,
+          "end_char": 2361,
+          "text_sha256": "cd82ee7856424a42c1ffbabb85f7ac08c7588660c7cc5ce8d84d261152ffdd9f"
+        }
+      ]
+    },
+    {
+      "id": "dev-neutralidade",
+      "split": "development",
+      "category": "in_scope",
+      "question": "O que o princípio da neutralidade procura evitar nas decisões de consumo?",
+      "evidence": [
+        {
+          "alternatives": [
+            {
+              "source_id": "lc214-atualizada",
+              "section": "Art. 2",
+              "anchor": "evitar distorcer as decisões de consumo"
+            }
+          ]
+        }
+      ],
+      "semantic_latency_ms": 11.444,
+      "lexical_latency_ms": 0.453,
+      "metrics": {
+        "semantic": {
+          "1": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "3": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "5": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          }
+        },
+        "lexical_tfidf": {
+          "1": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "3": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "5": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          }
+        }
+      },
+      "semantic": [
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:935-1204",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 2",
+          "score": 0.8803784251213074,
+          "start_char": 935,
+          "end_char": 1204,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "b8eae9371b350dd599626ab9b934896cacf7c0f6ec6186b369fcbbfb0736100b"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:1451-2038",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "1. Objetivos da Reforma Tributária do Consumo",
+          "score": 0.8431729078292847,
+          "start_char": 1451,
+          "end_char": 2038,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "bd556dfc6d5e4be7d93e024145ea9302fe4e888a01a2e9d783dcfe29f9c4d068"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:2038-2744",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2. Alinhamento às Melhores Práticas Internacionais",
+          "score": 0.8413293361663818,
+          "start_char": 2038,
+          "end_char": 2744,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "6f9e3831005b2add45198b8e7a18f7c455edddea24d4b775221b59fa86c131c4"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:3522-3666",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "3. Administração Tributária 3.0 e a Nova Era da Fiscalização",
+          "score": 0.8360708355903625,
+          "start_char": 3522,
+          "end_char": 3666,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "88b1faec252b8f858175166832e4a5fcd4a6977f16aa240035c16d8ec795659d"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:431-1325",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "Tributos que deixarão de existir:",
+          "score": 0.8253920674324036,
+          "start_char": 431,
+          "end_char": 1325,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "0104170bfe2d7c918ea6a0bedb641325938f363d896faa3d2058afc510c44b07"
+        }
+      ],
+      "lexical_tfidf": [
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:935-1204",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 2",
+          "score": 0.43226409500838625,
+          "start_char": 935,
+          "end_char": 1204,
+          "text_sha256": "b8eae9371b350dd599626ab9b934896cacf7c0f6ec6186b369fcbbfb0736100b"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:2038-2744",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2. Alinhamento às Melhores Práticas Internacionais",
+          "score": 0.12332516585480635,
+          "start_char": 2038,
+          "end_char": 2744,
+          "text_sha256": "6f9e3831005b2add45198b8e7a18f7c455edddea24d4b775221b59fa86c131c4"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:1451-2038",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "1. Objetivos da Reforma Tributária do Consumo",
+          "score": 0.10671874992770224,
+          "start_char": 1451,
+          "end_char": 2038,
+          "text_sha256": "bd556dfc6d5e4be7d93e024145ea9302fe4e888a01a2e9d783dcfe29f9c4d068"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:431-1325",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "Tributos que deixarão de existir:",
+          "score": 0.06781509649347474,
+          "start_char": 431,
+          "end_char": 1325,
+          "text_sha256": "0104170bfe2d7c918ea6a0bedb641325938f363d896faa3d2058afc510c44b07"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:1974-2863",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 3",
+          "score": 0.06466487513384611,
+          "start_char": 1974,
+          "end_char": 2863,
+          "text_sha256": "b849320005d97ea58217d205d04039fe5bb17ee2f6a0c9b449c74f7bbe7305ae"
+        }
+      ]
+    },
+    {
+      "id": "dev-cbs-2026",
+      "split": "development",
+      "category": "numeric",
+      "question": "Qual alíquota de CBS está prevista no artigo 346 para os fatos geradores de 2026?",
+      "evidence": [
+        {
+          "alternatives": [
+            {
+              "source_id": "lc214-atualizada",
+              "section": "Art. 346",
+              "anchor": "0,9%"
+            }
+          ]
+        }
+      ],
+      "semantic_latency_ms": 15.809,
+      "lexical_latency_ms": 0.568,
+      "metrics": {
+        "semantic": {
+          "1": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "3": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "5": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          }
+        },
+        "lexical_tfidf": {
+          "1": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "3": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "5": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          }
+        }
+      },
+      "semantic": [
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:456239-456417",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 346",
+          "score": 0.933205246925354,
+          "start_char": 456239,
+          "end_char": 456417,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "5175f6006a68ff59c75e5184529071608b034c04c24b695c51d213b712146bca"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:456417-457309",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 347",
+          "score": 0.9029054641723633,
+          "start_char": 456417,
+          "end_char": 457309,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "0c702d6ae3877850b8c67bd0f132f11e692458b79d9a6cae456feb3e9c032fac"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:455814-456239",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 345",
+          "score": 0.9004912376403809,
+          "start_char": 455814,
+          "end_char": 456239,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "7335447fcd6a3193e7253f0cebb1b11f86b45d838493234d0d4098fa5fd391fb"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:457189-457479",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 347",
+          "score": 0.8955482244491577,
+          "start_char": 457189,
+          "end_char": 457479,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "baf4fab46152b1265b9b31f559242741af79f88830a9e02c396d7d8f5c2d6f41"
+        },
+        {
+          "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:560-1459",
+          "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+          "source_id": "rfb-comunicado-2026",
+          "section": "1. Obrigações a partir de 2026",
+          "score": 0.893682599067688,
+          "start_char": 560,
+          "end_char": 1459,
+          "title": "Comunicado Conjunto: entrada em vigor da CBS e do IBS em 2026",
+          "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2025/dezembro/comunicado-conjunto",
+          "text_sha256": "8608b2752ab36c2424e7fc9f84c217cfa4d64e0238ffc142439c8fd8dead933c"
+        }
+      ],
+      "lexical_tfidf": [
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:456239-456417",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 346",
+          "score": 0.328233455604024,
+          "start_char": 456239,
+          "end_char": 456417,
+          "text_sha256": "5175f6006a68ff59c75e5184529071608b034c04c24b695c51d213b712146bca"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:456417-457309",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 347",
+          "score": 0.22067601477622267,
+          "start_char": 456417,
+          "end_char": 457309,
+          "text_sha256": "0c702d6ae3877850b8c67bd0f132f11e692458b79d9a6cae456feb3e9c032fac"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:454582-455481",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 344",
+          "score": 0.19333619757915924,
+          "start_char": 454582,
+          "end_char": 455481,
+          "text_sha256": "00163308da9160e664cf60816a69986f2755faf2871bb3a2c47682e52245bbf1"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:457479-458378",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 348",
+          "score": 0.1874594106670982,
+          "start_char": 457479,
+          "end_char": 458378,
+          "text_sha256": "42a7e29d7bf434a5fdd086bbaa81f2a20121b707ccfb48cf8fc14dff0e508f83"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:458258-459156",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 348",
+          "score": 0.1705461400250879,
+          "start_char": 458258,
+          "end_char": 459156,
+          "text_sha256": "fcc4c466f3a1d86ee52d82641fd5e021d26efc75db4324b9333d256314871832"
+        }
+      ]
+    },
+    {
+      "id": "test-ibs-2026",
+      "split": "test",
+      "category": "numeric",
+      "question": "Qual percentual estadual de IBS o artigo 343 estabelece para 2026?",
+      "evidence": [
+        {
+          "alternatives": [
+            {
+              "source_id": "lc214-atualizada",
+              "section": "Art. 343",
+              "anchor": "0,1%"
+            }
+          ]
+        }
+      ],
+      "semantic_latency_ms": 12.897,
+      "lexical_latency_ms": 0.553,
+      "metrics": {
+        "semantic": {
+          "1": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "3": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "5": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          }
+        },
+        "lexical_tfidf": {
+          "1": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "3": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "5": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          }
+        }
+      },
+      "semantic": [
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:453967-454582",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 343",
+          "score": 0.9188497066497803,
+          "start_char": 453967,
+          "end_char": 454582,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "592a5bb0215ea3cd9424b5f1ea9ce921303d7b1c8fd074bf2bfb86f9aee5a5e7"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:457479-458378",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 348",
+          "score": 0.8844907283782959,
+          "start_char": 457479,
+          "end_char": 458378,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "42a7e29d7bf434a5fdd086bbaa81f2a20121b707ccfb48cf8fc14dff0e508f83"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:5421-5454",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2031",
+          "score": 0.8834698796272278,
+          "start_char": 5421,
+          "end_char": 5454,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "b05f93828078ab11eed0aa46f13c71e3369a8f31b3c3ac0d880212dda9621eb6"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:454582-455481",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 344",
+          "score": 0.8828824758529663,
+          "start_char": 454582,
+          "end_char": 455481,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "00163308da9160e664cf60816a69986f2755faf2871bb3a2c47682e52245bbf1"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:5388-5421",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2030",
+          "score": 0.8807594180107117,
+          "start_char": 5388,
+          "end_char": 5421,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "18078c7227fec056cf73a54645f90e10a3c6066e4b3f733964a338833e543b4f"
+        }
+      ],
+      "lexical_tfidf": [
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:453967-454582",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 343",
+          "score": 0.21633688033367532,
+          "start_char": 453967,
+          "end_char": 454582,
+          "text_sha256": "592a5bb0215ea3cd9424b5f1ea9ce921303d7b1c8fd074bf2bfb86f9aee5a5e7"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:4664-5217",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2027 e 2028",
+          "score": 0.14175072216585552,
+          "start_char": 4664,
+          "end_char": 5217,
+          "text_sha256": "3f8cfe277a8ce1ae52ad857f744fbccef27a54c5a8d6ea80872816f0a3466a5f"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:3815-4713",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 4",
+          "score": 0.12379082181351296,
+          "start_char": 3815,
+          "end_char": 4713,
+          "text_sha256": "0f02e4680de2c1923f3833b99c5f49b136e96e2287970ab5ef7aaa893cacadf0"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:12-188",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "Tributos que passarão a existir:",
+          "score": 0.11737350496545719,
+          "start_char": 12,
+          "end_char": 188,
+          "text_sha256": "c9baa0cc94f1ce1f3cd04c9b72dca623812f4add762e2fb5b1b1b28fed254663"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:2743-3037",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 3",
+          "score": 0.11664433513504952,
+          "start_char": 2743,
+          "end_char": 3037,
+          "text_sha256": "74b1ce6f7a2e9577c39c519489c640c571518c42d1eae316012ca0b45590b009"
+        }
+      ]
+    },
+    {
+      "id": "test-ibs-2027",
+      "split": "test",
+      "category": "numeric",
+      "question": "Quais percentuais estaduais e municipais do IBS constam do artigo 344 para 2027 e 2028?",
+      "evidence": [
+        {
+          "alternatives": [
+            {
+              "source_id": "lc214-atualizada",
+              "section": "Art. 344",
+              "anchor": "alíquota municipal de 0,05%"
+            }
+          ]
+        }
+      ],
+      "semantic_latency_ms": 13.735,
+      "lexical_latency_ms": 0.358,
+      "metrics": {
+        "semantic": {
+          "1": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "3": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "5": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          }
+        },
+        "lexical_tfidf": {
+          "1": {
+            "hit": 0,
+            "evidence_recall": 0.0,
+            "reciprocal_rank": 0
+          },
+          "3": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 0.3333333333333333
+          },
+          "5": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 0.3333333333333333
+          }
+        }
+      },
+      "semantic": [
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:454582-455481",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 344",
+          "score": 0.9103807210922241,
+          "start_char": 454582,
+          "end_char": 455481,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "00163308da9160e664cf60816a69986f2755faf2871bb3a2c47682e52245bbf1"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:456417-457309",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 347",
+          "score": 0.8973917961120605,
+          "start_char": 456417,
+          "end_char": 457309,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "0c702d6ae3877850b8c67bd0f132f11e692458b79d9a6cae456feb3e9c032fac"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:5421-5454",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2031",
+          "score": 0.896052360534668,
+          "start_char": 5421,
+          "end_char": 5454,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "b05f93828078ab11eed0aa46f13c71e3369a8f31b3c3ac0d880212dda9621eb6"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:5355-5388",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2029",
+          "score": 0.8906188011169434,
+          "start_char": 5355,
+          "end_char": 5388,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "39a2a7df6e007dd41daab1c69326115644ffe441ea1fd4bbf9b3c4e5303d45b3"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:453967-454582",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 343",
+          "score": 0.8889585137367249,
+          "start_char": 453967,
+          "end_char": 454582,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "592a5bb0215ea3cd9424b5f1ea9ce921303d7b1c8fd074bf2bfb86f9aee5a5e7"
+        }
+      ],
+      "lexical_tfidf": [
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:456417-457309",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 347",
+          "score": 0.1814466707312639,
+          "start_char": 456417,
+          "end_char": 457309,
+          "text_sha256": "0c702d6ae3877850b8c67bd0f132f11e692458b79d9a6cae456feb3e9c032fac"
+        },
+        {
+          "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:3824-4293",
+          "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+          "source_id": "rfb-comunicado-2026",
+          "section": "6. Dispensa do recolhimento em 2026 mediante cumprimento das obrigações acessórias",
+          "score": 0.16018774504679853,
+          "start_char": 3824,
+          "end_char": 4293,
+          "text_sha256": "968227d33dde1fdafae71aac14b22aa504339930d65eff22aac7352f00de8e36"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:454582-455481",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 344",
+          "score": 0.1429410627464607,
+          "start_char": 454582,
+          "end_char": 455481,
+          "text_sha256": "00163308da9160e664cf60816a69986f2755faf2871bb3a2c47682e52245bbf1"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:457189-457479",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 347",
+          "score": 0.14076927944673845,
+          "start_char": 457189,
+          "end_char": 457479,
+          "text_sha256": "baf4fab46152b1265b9b31f559242741af79f88830a9e02c396d7d8f5c2d6f41"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:4664-5217",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2027 e 2028",
+          "score": 0.1346133543381418,
+          "start_char": 4664,
+          "end_char": 5217,
+          "text_sha256": "3f8cfe277a8ce1ae52ad857f744fbccef27a54c5a8d6ea80872816f0a3466a5f"
+        }
+      ]
+    },
+    {
+      "id": "test-incidencia",
+      "split": "test",
+      "category": "in_scope",
+      "question": "Operações remuneradas com bens ou serviços estão na incidência geral do IBS e da CBS?",
+      "evidence": [
+        {
+          "alternatives": [
+            {
+              "source_id": "lc214-atualizada",
+              "section": "Art. 4",
+              "anchor": "operações onerosas com bens ou com serviços"
+            }
+          ]
+        }
+      ],
+      "semantic_latency_ms": 13.256,
+      "lexical_latency_ms": 0.389,
+      "metrics": {
+        "semantic": {
+          "1": {
+            "hit": 0,
+            "evidence_recall": 0.0,
+            "reciprocal_rank": 0
+          },
+          "3": {
+            "hit": 0,
+            "evidence_recall": 0.0,
+            "reciprocal_rank": 0
+          },
+          "5": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 0.25
+          }
+        },
+        "lexical_tfidf": {
+          "1": {
+            "hit": 0,
+            "evidence_recall": 0.0,
+            "reciprocal_rank": 0
+          },
+          "3": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 0.5
+          },
+          "5": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 0.5
+          }
+        }
+      },
+      "semantic": [
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:2743-3037",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 3",
+          "score": 0.9019991159439087,
+          "start_char": 2743,
+          "end_char": 3037,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "74b1ce6f7a2e9577c39c519489c640c571518c42d1eae316012ca0b45590b009"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:3815-4713",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 4",
+          "score": 0.8995029330253601,
+          "start_char": 3815,
+          "end_char": 4713,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "0f02e4680de2c1923f3833b99c5f49b136e96e2287970ab5ef7aaa893cacadf0"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:935-1204",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 2",
+          "score": 0.8993858098983765,
+          "start_char": 935,
+          "end_char": 1204,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "b8eae9371b350dd599626ab9b934896cacf7c0f6ec6186b369fcbbfb0736100b"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:3037-3935",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 4",
+          "score": 0.897641658782959,
+          "start_char": 3037,
+          "end_char": 3935,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "68cc46551564645d786ee2bc4b2e1c1b5fb8a730cda6bdbcc433e1e1b3589625"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:12-188",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "Tributos que passarão a existir:",
+          "score": 0.8941302299499512,
+          "start_char": 12,
+          "end_char": 188,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "c9baa0cc94f1ce1f3cd04c9b72dca623812f4add762e2fb5b1b1b28fed254663"
+        }
+      ],
+      "lexical_tfidf": [
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:2743-3037",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 3",
+          "score": 0.392195810676361,
+          "start_char": 2743,
+          "end_char": 3037,
+          "text_sha256": "74b1ce6f7a2e9577c39c519489c640c571518c42d1eae316012ca0b45590b009"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:3037-3935",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 4",
+          "score": 0.2875424126333839,
+          "start_char": 3037,
+          "end_char": 3935,
+          "text_sha256": "68cc46551564645d786ee2bc4b2e1c1b5fb8a730cda6bdbcc433e1e1b3589625"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:3815-4713",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 4",
+          "score": 0.27585690409579783,
+          "start_char": 3815,
+          "end_char": 4713,
+          "text_sha256": "0f02e4680de2c1923f3833b99c5f49b136e96e2287970ab5ef7aaa893cacadf0"
+        },
+        {
+          "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:3514-3824",
+          "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+          "source_id": "rfb-comunicado-2026",
+          "section": "5. Plataformas digitais",
+          "score": 0.26314791153330697,
+          "start_char": 3514,
+          "end_char": 3824,
+          "text_sha256": "22e24e48a52206336e0cb8b6b55eaee6cba6bbba844abbc2ce1195d491342cd1"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:12-188",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "Tributos que passarão a existir:",
+          "score": 0.22050391414415735,
+          "start_char": 12,
+          "end_char": 188,
+          "text_sha256": "c9baa0cc94f1ce1f3cd04c9b72dca623812f4add762e2fb5b1b1b28fed254663"
+        }
+      ]
+    },
+    {
+      "id": "test-fornecedor",
+      "split": "test",
+      "category": "in_scope",
+      "question": "Uma pessoa física que realiza fornecimentos também pode ser considerada fornecedora?",
+      "evidence": [
+        {
+          "alternatives": [
+            {
+              "source_id": "lc214-atualizada",
+              "section": "Art. 3",
+              "anchor": "fornecedor: pessoa física ou jurídica"
+            }
+          ]
+        }
+      ],
+      "semantic_latency_ms": 13.641,
+      "lexical_latency_ms": 0.467,
+      "metrics": {
+        "semantic": {
+          "1": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "3": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "5": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          }
+        },
+        "lexical_tfidf": {
+          "1": {
+            "hit": 0,
+            "evidence_recall": 0.0,
+            "reciprocal_rank": 0
+          },
+          "3": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 0.5
+          },
+          "5": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 0.5
+          }
+        }
+      },
+      "semantic": [
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:1204-2094",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 3",
+          "score": 0.8658044338226318,
+          "start_char": 1204,
+          "end_char": 2094,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "ec4f8b30b63f7c8592f244d409e064dbdb37d29b554a9992638cadfc99c88696"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:1974-2863",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 3",
+          "score": 0.865342378616333,
+          "start_char": 1974,
+          "end_char": 2863,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "b849320005d97ea58217d205d04039fe5bb17ee2f6a0c9b449c74f7bbe7305ae"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:4593-5165",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 4",
+          "score": 0.8507746458053589,
+          "start_char": 4593,
+          "end_char": 5165,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "61bcaa7412582abdda286c02a7f0a72c5dab4c111f49ab898778dec21c7400a1"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:3037-3935",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 4",
+          "score": 0.8453183770179749,
+          "start_char": 3037,
+          "end_char": 3935,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "68cc46551564645d786ee2bc4b2e1c1b5fb8a730cda6bdbcc433e1e1b3589625"
+        },
+        {
+          "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:1339-1465",
+          "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+          "source_id": "rfb-comunicado-2026",
+          "section": "1. Obrigações a partir de 2026",
+          "score": 0.8427208662033081,
+          "start_char": 1339,
+          "end_char": 1465,
+          "title": "Comunicado Conjunto: entrada em vigor da CBS e do IBS em 2026",
+          "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2025/dezembro/comunicado-conjunto",
+          "text_sha256": "a75394d2d4d8dbb14f78bd28f4455428767bf08cce9c3173bceef11bdf03795e"
+        }
+      ],
+      "lexical_tfidf": [
+        {
+          "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:1339-1465",
+          "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+          "source_id": "rfb-comunicado-2026",
+          "section": "1. Obrigações a partir de 2026",
+          "score": 0.20723934394779464,
+          "start_char": 1339,
+          "end_char": 1465,
+          "text_sha256": "a75394d2d4d8dbb14f78bd28f4455428767bf08cce9c3173bceef11bdf03795e"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:1204-2094",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 3",
+          "score": 0.1439579591484288,
+          "start_char": 1204,
+          "end_char": 2094,
+          "text_sha256": "ec4f8b30b63f7c8592f244d409e064dbdb37d29b554a9992638cadfc99c88696"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:4593-5165",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 4",
+          "score": 0.11218163853715733,
+          "start_char": 4593,
+          "end_char": 5165,
+          "text_sha256": "61bcaa7412582abdda286c02a7f0a72c5dab4c111f49ab898778dec21c7400a1"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:2744-3642",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "3. Administração Tributária 3.0 e a Nova Era da Fiscalização",
+          "score": 0.09326835438402527,
+          "start_char": 2744,
+          "end_char": 3642,
+          "text_sha256": "a0bcd1dde312eaabc689692ded1e1b697041683f58ccc7a98ea8ce204ba017e4"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:1205-1451",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "Tributos que deixarão de existir:",
+          "score": 0.08014741536490426,
+          "start_char": 1205,
+          "end_char": 1451,
+          "text_sha256": "db8c430176234365b79187deb4b64b47e11ff455705c65cb92ce9ea151e7a24f"
+        }
+      ]
+    },
+    {
+      "id": "test-documentos",
+      "split": "test",
+      "category": "in_scope",
+      "question": "Segundo o comunicado sobre 2026, como CBS e IBS devem aparecer nos documentos fiscais eletrônicos?",
+      "evidence": [
+        {
+          "alternatives": [
+            {
+              "source_id": "rfb-comunicado-2026",
+              "anchor": "individualizados por operação"
+            }
+          ]
+        }
+      ],
+      "semantic_latency_ms": 12.315,
+      "lexical_latency_ms": 0.364,
+      "metrics": {
+        "semantic": {
+          "1": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "3": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "5": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          }
+        },
+        "lexical_tfidf": {
+          "1": {
+            "hit": 0,
+            "evidence_recall": 0.0,
+            "reciprocal_rank": 0
+          },
+          "3": {
+            "hit": 0,
+            "evidence_recall": 0.0,
+            "reciprocal_rank": 0
+          },
+          "5": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 0.25
+          }
+        }
+      },
+      "semantic": [
+        {
+          "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:560-1459",
+          "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+          "source_id": "rfb-comunicado-2026",
+          "section": "1. Obrigações a partir de 2026",
+          "score": 0.9211258292198181,
+          "start_char": 560,
+          "end_char": 1459,
+          "title": "Comunicado Conjunto: entrada em vigor da CBS e do IBS em 2026",
+          "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2025/dezembro/comunicado-conjunto",
+          "text_sha256": "8608b2752ab36c2424e7fc9f84c217cfa4d64e0238ffc142439c8fd8dead933c"
+        },
+        {
+          "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:1465-2361",
+          "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+          "source_id": "rfb-comunicado-2026",
+          "section": "2. Obrigações Acessórias",
+          "score": 0.913020133972168,
+          "start_char": 1465,
+          "end_char": 2361,
+          "title": "Comunicado Conjunto: entrada em vigor da CBS e do IBS em 2026",
+          "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2025/dezembro/comunicado-conjunto",
+          "text_sha256": "cd82ee7856424a42c1ffbabb85f7ac08c7588660c7cc5ce8d84d261152ffdd9f"
+        },
+        {
+          "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:3824-4293",
+          "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+          "source_id": "rfb-comunicado-2026",
+          "section": "6. Dispensa do recolhimento em 2026 mediante cumprimento das obrigações acessórias",
+          "score": 0.9011232852935791,
+          "start_char": 3824,
+          "end_char": 4293,
+          "title": "Comunicado Conjunto: entrada em vigor da CBS e do IBS em 2026",
+          "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2025/dezembro/comunicado-conjunto",
+          "text_sha256": "968227d33dde1fdafae71aac14b22aa504339930d65eff22aac7352f00de8e36"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:4336-4664",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2026",
+          "score": 0.9005873203277588,
+          "start_char": 4336,
+          "end_char": 4664,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "c6fbf02c4a188e0b448b13a365ede0171abd5feb6b00900fbc427028142a246f"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:5421-5454",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2031",
+          "score": 0.8992485404014587,
+          "start_char": 5421,
+          "end_char": 5454,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "b05f93828078ab11eed0aa46f13c71e3369a8f31b3c3ac0d880212dda9621eb6"
+        }
+      ],
+      "lexical_tfidf": [
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:935-1204",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 2",
+          "score": 0.21962751568319638,
+          "start_char": 935,
+          "end_char": 1204,
+          "text_sha256": "b8eae9371b350dd599626ab9b934896cacf7c0f6ec6186b369fcbbfb0736100b"
+        },
+        {
+          "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:2241-2409",
+          "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+          "source_id": "rfb-comunicado-2026",
+          "section": "2. Obrigações Acessórias",
+          "score": 0.19264710415525002,
+          "start_char": 2241,
+          "end_char": 2409,
+          "text_sha256": "8a12c9f2b466566a4e842dc8b91b25b685c513fc20d4769e663fe9a9f94b2092"
+        },
+        {
+          "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:1465-2361",
+          "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+          "source_id": "rfb-comunicado-2026",
+          "section": "2. Obrigações Acessórias",
+          "score": 0.1691095449635468,
+          "start_char": 1465,
+          "end_char": 2361,
+          "text_sha256": "cd82ee7856424a42c1ffbabb85f7ac08c7588660c7cc5ce8d84d261152ffdd9f"
+        },
+        {
+          "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:560-1459",
+          "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+          "source_id": "rfb-comunicado-2026",
+          "section": "1. Obrigações a partir de 2026",
+          "score": 0.16473123049653582,
+          "start_char": 560,
+          "end_char": 1459,
+          "text_sha256": "8608b2752ab36c2424e7fc9f84c217cfa4d64e0238ffc142439c8fd8dead933c"
+        },
+        {
+          "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:3824-4293",
+          "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+          "source_id": "rfb-comunicado-2026",
+          "section": "6. Dispensa do recolhimento em 2026 mediante cumprimento das obrigações acessórias",
+          "score": 0.1440000939626846,
+          "start_char": 3824,
+          "end_char": 4293,
+          "text_sha256": "968227d33dde1fdafae71aac14b22aa504339930d65eff22aac7352f00de8e36"
+        }
+      ]
+    },
+    {
+      "id": "test-modelo-integral",
+      "split": "test",
+      "category": "numeric",
+      "question": "Em que ano o cronograma da Receita prevê vigência integral do novo modelo?",
+      "evidence": [
+        {
+          "alternatives": [
+            {
+              "source_id": "rfb-entenda",
+              "section": "2033",
+              "anchor": "Vigência integral do novo modelo"
+            }
+          ]
+        }
+      ],
+      "semantic_latency_ms": 12.787,
+      "lexical_latency_ms": 0.385,
+      "metrics": {
+        "semantic": {
+          "1": {
+            "hit": 0,
+            "evidence_recall": 0.0,
+            "reciprocal_rank": 0
+          },
+          "3": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 0.5
+          },
+          "5": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 0.5
+          }
+        },
+        "lexical_tfidf": {
+          "1": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "3": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "5": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          }
+        }
+      },
+      "semantic": [
+        {
+          "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:0-560",
+          "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+          "source_id": "rfb-comunicado-2026",
+          "section": "Introdução",
+          "score": 0.860768735408783,
+          "start_char": 0,
+          "end_char": 560,
+          "title": "Comunicado Conjunto: entrada em vigor da CBS e do IBS em 2026",
+          "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2025/dezembro/comunicado-conjunto",
+          "text_sha256": "f65217763c64ac006f93099128fc2d0251f3cee34e7b1d46844d539ac2ef7269"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:5487-5552",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2033",
+          "score": 0.8591665625572205,
+          "start_char": 5487,
+          "end_char": 5552,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "d58a3c271942fdb5f1ec01b7d873d5cd0191e258714f43fe90e9452c36995bf8"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:457479-458378",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 348",
+          "score": 0.8559013605117798,
+          "start_char": 457479,
+          "end_char": 458378,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "42a7e29d7bf434a5fdd086bbaa81f2a20121b707ccfb48cf8fc14dff0e508f83"
+        },
+        {
+          "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:560-1459",
+          "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+          "source_id": "rfb-comunicado-2026",
+          "section": "1. Obrigações a partir de 2026",
+          "score": 0.853395938873291,
+          "start_char": 560,
+          "end_char": 1459,
+          "title": "Comunicado Conjunto: entrada em vigor da CBS e do IBS em 2026",
+          "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2025/dezembro/comunicado-conjunto",
+          "text_sha256": "8608b2752ab36c2424e7fc9f84c217cfa4d64e0238ffc142439c8fd8dead933c"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:431-1325",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "Tributos que deixarão de existir:",
+          "score": 0.8525627255439758,
+          "start_char": 431,
+          "end_char": 1325,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "0104170bfe2d7c918ea6a0bedb641325938f363d896faa3d2058afc510c44b07"
+        }
+      ],
+      "lexical_tfidf": [
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:5487-5552",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2033",
+          "score": 0.6216783026240107,
+          "start_char": 5487,
+          "end_char": 5552,
+          "text_sha256": "d58a3c271942fdb5f1ec01b7d873d5cd0191e258714f43fe90e9452c36995bf8"
+        },
+        {
+          "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:3824-4293",
+          "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+          "source_id": "rfb-comunicado-2026",
+          "section": "6. Dispensa do recolhimento em 2026 mediante cumprimento das obrigações acessórias",
+          "score": 0.15509887197657724,
+          "start_char": 3824,
+          "end_char": 4293,
+          "text_sha256": "968227d33dde1fdafae71aac14b22aa504339930d65eff22aac7352f00de8e36"
+        },
+        {
+          "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:0-560",
+          "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+          "source_id": "rfb-comunicado-2026",
+          "section": "Introdução",
+          "score": 0.14697234507422824,
+          "start_char": 0,
+          "end_char": 560,
+          "text_sha256": "f65217763c64ac006f93099128fc2d0251f3cee34e7b1d46844d539ac2ef7269"
+        },
+        {
+          "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:2409-2770",
+          "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+          "source_id": "rfb-comunicado-2026",
+          "section": "3. Leiautes definidos sem data de vigência determinada",
+          "score": 0.14466489254799308,
+          "start_char": 2409,
+          "end_char": 2770,
+          "text_sha256": "2beb7ef5e6be808b07f6e31441047508a539d11ebf7591729b96cb476c71c938"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:4336-4664",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2026",
+          "score": 0.1386243998471583,
+          "start_char": 4336,
+          "end_char": 4664,
+          "text_sha256": "c6fbf02c4a188e0b448b13a365ede0171abd5feb6b00900fbc427028142a246f"
+        }
+      ]
+    },
+    {
+      "id": "test-extincao",
+      "split": "test",
+      "category": "in_scope",
+      "question": "Quais tributos o cronograma da Receita indica que serão extintos em 2033?",
+      "evidence": [
+        {
+          "alternatives": [
+            {
+              "source_id": "rfb-entenda",
+              "section": "2033",
+              "anchor": "Extinção do ICMS e do ISS"
+            }
+          ]
+        }
+      ],
+      "semantic_latency_ms": 12.45,
+      "lexical_latency_ms": 0.374,
+      "metrics": {
+        "semantic": {
+          "1": {
+            "hit": 0,
+            "evidence_recall": 0.0,
+            "reciprocal_rank": 0
+          },
+          "3": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 0.5
+          },
+          "5": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 0.5
+          }
+        },
+        "lexical_tfidf": {
+          "1": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "3": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "5": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          }
+        }
+      },
+      "semantic": [
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:457479-458378",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 348",
+          "score": 0.87386155128479,
+          "start_char": 457479,
+          "end_char": 458378,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "42a7e29d7bf434a5fdd086bbaa81f2a20121b707ccfb48cf8fc14dff0e508f83"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:5487-5552",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2033",
+          "score": 0.8714327216148376,
+          "start_char": 5487,
+          "end_char": 5552,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "d58a3c271942fdb5f1ec01b7d873d5cd0191e258714f43fe90e9452c36995bf8"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:431-1325",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "Tributos que deixarão de existir:",
+          "score": 0.8707828521728516,
+          "start_char": 431,
+          "end_char": 1325,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "0104170bfe2d7c918ea6a0bedb641325938f363d896faa3d2058afc510c44b07"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:4664-5217",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2027 e 2028",
+          "score": 0.8690354824066162,
+          "start_char": 4664,
+          "end_char": 5217,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "3f8cfe277a8ce1ae52ad857f744fbccef27a54c5a8d6ea80872816f0a3466a5f"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:455814-456239",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 345",
+          "score": 0.8632320165634155,
+          "start_char": 455814,
+          "end_char": 456239,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "7335447fcd6a3193e7253f0cebb1b11f86b45d838493234d0d4098fa5fd391fb"
+        }
+      ],
+      "lexical_tfidf": [
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:5487-5552",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2033",
+          "score": 0.1509029530397648,
+          "start_char": 5487,
+          "end_char": 5552,
+          "text_sha256": "d58a3c271942fdb5f1ec01b7d873d5cd0191e258714f43fe90e9452c36995bf8"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:455814-456239",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 345",
+          "score": 0.1493625624741172,
+          "start_char": 455814,
+          "end_char": 456239,
+          "text_sha256": "7335447fcd6a3193e7253f0cebb1b11f86b45d838493234d0d4098fa5fd391fb"
+        },
+        {
+          "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:3824-4293",
+          "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+          "source_id": "rfb-comunicado-2026",
+          "section": "6. Dispensa do recolhimento em 2026 mediante cumprimento das obrigações acessórias",
+          "score": 0.1389178403662599,
+          "start_char": 3824,
+          "end_char": 4293,
+          "text_sha256": "968227d33dde1fdafae71aac14b22aa504339930d65eff22aac7352f00de8e36"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:12-188",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "Tributos que passarão a existir:",
+          "score": 0.11276328626286075,
+          "start_char": 12,
+          "end_char": 188,
+          "text_sha256": "c9baa0cc94f1ce1f3cd04c9b72dca623812f4add762e2fb5b1b1b28fed254663"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:454582-455481",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 344",
+          "score": 0.1127070160445988,
+          "start_char": 454582,
+          "end_char": 455481,
+          "text_sha256": "00163308da9160e664cf60816a69986f2755faf2871bb3a2c47682e52245bbf1"
+        }
+      ]
+    },
+    {
+      "id": "test-compensacao",
+      "split": "test",
+      "category": "in_scope",
+      "question": "O artigo 348 permite compensar o montante recolhido do IBS e da CBS em 2026?",
+      "evidence": [
+        {
+          "alternatives": [
+            {
+              "source_id": "lc214-atualizada",
+              "section": "Art. 348",
+              "anchor": "será compensado com o valor devido"
+            }
+          ]
+        }
+      ],
+      "semantic_latency_ms": 12.972,
+      "lexical_latency_ms": 0.371,
+      "metrics": {
+        "semantic": {
+          "1": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "3": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "5": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          }
+        },
+        "lexical_tfidf": {
+          "1": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "3": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "5": {
+            "hit": 1,
+            "evidence_recall": 1.0,
+            "reciprocal_rank": 1.0
+          }
+        }
+      },
+      "semantic": [
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:457479-458378",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 348",
+          "score": 0.9275498986244202,
+          "start_char": 457479,
+          "end_char": 458378,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "42a7e29d7bf434a5fdd086bbaa81f2a20121b707ccfb48cf8fc14dff0e508f83"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:457189-457479",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 347",
+          "score": 0.9157395958900452,
+          "start_char": 457189,
+          "end_char": 457479,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "baf4fab46152b1265b9b31f559242741af79f88830a9e02c396d7d8f5c2d6f41"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:456417-457309",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 347",
+          "score": 0.9126290082931519,
+          "start_char": 456417,
+          "end_char": 457309,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "0c702d6ae3877850b8c67bd0f132f11e692458b79d9a6cae456feb3e9c032fac"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:4336-4664",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2026",
+          "score": 0.9109652042388916,
+          "start_char": 4336,
+          "end_char": 4664,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "c6fbf02c4a188e0b448b13a365ede0171abd5feb6b00900fbc427028142a246f"
+        },
+        {
+          "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:3824-4293",
+          "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+          "source_id": "rfb-comunicado-2026",
+          "section": "6. Dispensa do recolhimento em 2026 mediante cumprimento das obrigações acessórias",
+          "score": 0.9061830043792725,
+          "start_char": 3824,
+          "end_char": 4293,
+          "title": "Comunicado Conjunto: entrada em vigor da CBS e do IBS em 2026",
+          "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2025/dezembro/comunicado-conjunto",
+          "text_sha256": "968227d33dde1fdafae71aac14b22aa504339930d65eff22aac7352f00de8e36"
+        }
+      ],
+      "lexical_tfidf": [
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:457479-458378",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 348",
+          "score": 0.2864897972619644,
+          "start_char": 457479,
+          "end_char": 458378,
+          "text_sha256": "42a7e29d7bf434a5fdd086bbaa81f2a20121b707ccfb48cf8fc14dff0e508f83"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:4336-4664",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2026",
+          "score": 0.24770447309424246,
+          "start_char": 4336,
+          "end_char": 4664,
+          "text_sha256": "c6fbf02c4a188e0b448b13a365ede0171abd5feb6b00900fbc427028142a246f"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:456417-457309",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 347",
+          "score": 0.22654602553896375,
+          "start_char": 456417,
+          "end_char": 457309,
+          "text_sha256": "0c702d6ae3877850b8c67bd0f132f11e692458b79d9a6cae456feb3e9c032fac"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:457189-457479",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 347",
+          "score": 0.20140486797690305,
+          "start_char": 457189,
+          "end_char": 457479,
+          "text_sha256": "baf4fab46152b1265b9b31f559242741af79f88830a9e02c396d7d8f5c2d6f41"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:2743-3037",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 3",
+          "score": 0.16471400528414815,
+          "start_char": 2743,
+          "end_char": 3037,
+          "text_sha256": "74b1ce6f7a2e9577c39c519489c640c571518c42d1eae316012ca0b45590b009"
+        }
+      ]
+    },
+    {
+      "id": "ood-receita",
+      "split": "diagnostic",
+      "category": "out_of_scope",
+      "question": "Como preparar um bolo de cenoura com cobertura de chocolate?",
+      "evidence": [],
+      "semantic_latency_ms": 12.034,
+      "lexical_latency_ms": 0.484,
+      "metrics": {
+        "semantic": null,
+        "lexical_tfidf": null
+      },
+      "semantic": [
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:0-12",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "Introdução",
+          "score": 0.7955042719841003,
+          "start_char": 0,
+          "end_char": 12,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "286d0ce2c688b778b0b303540a451d878352c949b2786ce5977c497997499734"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:456239-456417",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 346",
+          "score": 0.7901501059532166,
+          "start_char": 456239,
+          "end_char": 456417,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "5175f6006a68ff59c75e5184529071608b034c04c24b695c51d213b712146bca"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:1451-2038",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "1. Objetivos da Reforma Tributária do Consumo",
+          "score": 0.7820924520492554,
+          "start_char": 1451,
+          "end_char": 2038,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "bd556dfc6d5e4be7d93e024145ea9302fe4e888a01a2e9d783dcfe29f9c4d068"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:454582-455481",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 344",
+          "score": 0.7819269895553589,
+          "start_char": 454582,
+          "end_char": 455481,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "00163308da9160e664cf60816a69986f2755faf2871bb3a2c47682e52245bbf1"
+        },
+        {
+          "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:1339-1465",
+          "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+          "source_id": "rfb-comunicado-2026",
+          "section": "1. Obrigações a partir de 2026",
+          "score": 0.7803840637207031,
+          "start_char": 1339,
+          "end_char": 1465,
+          "title": "Comunicado Conjunto: entrada em vigor da CBS e do IBS em 2026",
+          "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2025/dezembro/comunicado-conjunto",
+          "text_sha256": "a75394d2d4d8dbb14f78bd28f4455428767bf08cce9c3173bceef11bdf03795e"
+        }
+      ],
+      "lexical_tfidf": [
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:3894-4326",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "5. Conclusão",
+          "score": 0.25388656862843606,
+          "start_char": 3894,
+          "end_char": 4326,
+          "text_sha256": "7107d4d1a4d8176815363d3878a4995aa4e6ae52bbe2cd74e661a8beb4561f05"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:4664-5217",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2027 e 2028",
+          "score": 0.20243240930935733,
+          "start_char": 4664,
+          "end_char": 5217,
+          "text_sha256": "3f8cfe277a8ce1ae52ad857f744fbccef27a54c5a8d6ea80872816f0a3466a5f"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:1204-2094",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 3",
+          "score": 0.13560307992037038,
+          "start_char": 1204,
+          "end_char": 2094,
+          "text_sha256": "ec4f8b30b63f7c8592f244d409e064dbdb37d29b554a9992638cadfc99c88696"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:4593-5165",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 4",
+          "score": 0.13163523430792767,
+          "start_char": 4593,
+          "end_char": 5165,
+          "text_sha256": "61bcaa7412582abdda286c02a7f0a72c5dab4c111f49ab898778dec21c7400a1"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:455361-455814",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 344",
+          "score": 0.1281717110435266,
+          "start_char": 455361,
+          "end_char": 455814,
+          "text_sha256": "32db2a217092e37eb8a1b3b389cb4413d9744d07d82875c6aa084490bed9f390"
+        }
+      ]
+    },
+    {
+      "id": "ood-clima",
+      "split": "diagnostic",
+      "category": "out_of_scope",
+      "question": "Vai chover amanhã em Recife?",
+      "evidence": [],
+      "semantic_latency_ms": 12.32,
+      "lexical_latency_ms": 0.321,
+      "metrics": {
+        "semantic": null,
+        "lexical_tfidf": null
+      },
+      "semantic": [
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:0-12",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "Introdução",
+          "score": 0.8450846672058105,
+          "start_char": 0,
+          "end_char": 12,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "286d0ce2c688b778b0b303540a451d878352c949b2786ce5977c497997499734"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:4326-4336",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "Transição",
+          "score": 0.8326785564422607,
+          "start_char": 4326,
+          "end_char": 4336,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "f52624fe89381ff8d027096eb90f156a46dbecaf7bf4a986546e78aaec5c9455"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:454582-455481",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 344",
+          "score": 0.8256391882896423,
+          "start_char": 454582,
+          "end_char": 455481,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "00163308da9160e664cf60816a69986f2755faf2871bb3a2c47682e52245bbf1"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:457479-458378",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 348",
+          "score": 0.8228886127471924,
+          "start_char": 457479,
+          "end_char": 458378,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "42a7e29d7bf434a5fdd086bbaa81f2a20121b707ccfb48cf8fc14dff0e508f83"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:456417-457309",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 347",
+          "score": 0.8178994655609131,
+          "start_char": 456417,
+          "end_char": 457309,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "0c702d6ae3877850b8c67bd0f132f11e692458b79d9a6cae456feb3e9c032fac"
+        }
+      ],
+      "lexical_tfidf": [
+        {
+          "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:1339-1465",
+          "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+          "source_id": "rfb-comunicado-2026",
+          "section": "1. Obrigações a partir de 2026",
+          "score": 0.13023545196017722,
+          "start_char": 1339,
+          "end_char": 1465,
+          "text_sha256": "a75394d2d4d8dbb14f78bd28f4455428767bf08cce9c3173bceef11bdf03795e"
+        },
+        {
+          "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:2770-3514",
+          "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+          "source_id": "rfb-comunicado-2026",
+          "section": "4. Leiautes em construção",
+          "score": 0.12149784406297869,
+          "start_char": 2770,
+          "end_char": 3514,
+          "text_sha256": "ee6465ac9d8bbdce6bb02c8a80de35b6bac943d9432894523d48758640a0d284"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:761976-762824",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 544",
+          "score": 0.11403935908335898,
+          "start_char": 761976,
+          "end_char": 762824,
+          "text_sha256": "378dca5ac38ff4b0e4e9abc91698c7c58e8ad681839689821c69dc2970a32747"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:458258-459156",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 348",
+          "score": 0.11321549632360806,
+          "start_char": 458258,
+          "end_char": 459156,
+          "text_sha256": "fcc4c466f3a1d86ee52d82641fd5e021d26efc75db4324b9333d256314871832"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:456417-457309",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 347",
+          "score": 0.11158229341085897,
+          "start_char": 456417,
+          "end_char": 457309,
+          "text_sha256": "0c702d6ae3877850b8c67bd0f132f11e692458b79d9a6cae456feb3e9c032fac"
+        }
+      ]
+    },
+    {
+      "id": "ood-geografia",
+      "split": "diagnostic",
+      "category": "out_of_scope",
+      "question": "Qual é a capital do Japão?",
+      "evidence": [],
+      "semantic_latency_ms": 10.415,
+      "lexical_latency_ms": 0.338,
+      "metrics": {
+        "semantic": null,
+        "lexical_tfidf": null
+      },
+      "semantic": [
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:0-12",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "Introdução",
+          "score": 0.7956002950668335,
+          "start_char": 0,
+          "end_char": 12,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "286d0ce2c688b778b0b303540a451d878352c949b2786ce5977c497997499734"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:4326-4336",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "Transição",
+          "score": 0.7830623984336853,
+          "start_char": 4326,
+          "end_char": 4336,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "f52624fe89381ff8d027096eb90f156a46dbecaf7bf4a986546e78aaec5c9455"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:2038-2744",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2. Alinhamento às Melhores Práticas Internacionais",
+          "score": 0.7710287570953369,
+          "start_char": 2038,
+          "end_char": 2744,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "6f9e3831005b2add45198b8e7a18f7c455edddea24d4b775221b59fa86c131c4"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:761976-762824",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 544",
+          "score": 0.7684952020645142,
+          "start_char": 761976,
+          "end_char": 762824,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "378dca5ac38ff4b0e4e9abc91698c7c58e8ad681839689821c69dc2970a32747"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:431-1325",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "Tributos que deixarão de existir:",
+          "score": 0.7678433656692505,
+          "start_char": 431,
+          "end_char": 1325,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "0104170bfe2d7c918ea6a0bedb641325938f363d896faa3d2058afc510c44b07"
+        }
+      ],
+      "lexical_tfidf": [
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:935-1204",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 2",
+          "score": 0.17463201057763802,
+          "start_char": 935,
+          "end_char": 1204,
+          "text_sha256": "b8eae9371b350dd599626ab9b934896cacf7c0f6ec6186b369fcbbfb0736100b"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:3815-4713",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 4",
+          "score": 0.1290354358530338,
+          "start_char": 3815,
+          "end_char": 4713,
+          "text_sha256": "0f02e4680de2c1923f3833b99c5f49b136e96e2287970ab5ef7aaa893cacadf0"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:3037-3935",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 4",
+          "score": 0.11921353848237778,
+          "start_char": 3037,
+          "end_char": 3935,
+          "text_sha256": "68cc46551564645d786ee2bc4b2e1c1b5fb8a730cda6bdbcc433e1e1b3589625"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:5487-5552",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2033",
+          "score": 0.10294461008004131,
+          "start_char": 5487,
+          "end_char": 5552,
+          "text_sha256": "d58a3c271942fdb5f1ec01b7d873d5cd0191e258714f43fe90e9452c36995bf8"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:5217-5355",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2029 a 2032",
+          "score": 0.08169869652362131,
+          "start_char": 5217,
+          "end_char": 5355,
+          "text_sha256": "f0225547b228b05cc9d90b478f2657ff7853cd6e418340c04b3ad903a5db5a6e"
+        }
+      ]
+    },
+    {
+      "id": "insufficient-personal",
+      "split": "diagnostic",
+      "category": "insufficient_documents",
+      "question": "Qual será o valor exato dos tributos da minha empresa em 2027?",
+      "evidence": [],
+      "semantic_latency_ms": 12.548,
+      "lexical_latency_ms": 0.389,
+      "metrics": {
+        "semantic": null,
+        "lexical_tfidf": null
+      },
+      "semantic": [
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:431-1325",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "Tributos que deixarão de existir:",
+          "score": 0.8738188147544861,
+          "start_char": 431,
+          "end_char": 1325,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "0104170bfe2d7c918ea6a0bedb641325938f363d896faa3d2058afc510c44b07"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:454582-455481",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 344",
+          "score": 0.8660675287246704,
+          "start_char": 454582,
+          "end_char": 455481,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "00163308da9160e664cf60816a69986f2755faf2871bb3a2c47682e52245bbf1"
+        },
+        {
+          "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:560-1459",
+          "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+          "source_id": "rfb-comunicado-2026",
+          "section": "1. Obrigações a partir de 2026",
+          "score": 0.8637374639511108,
+          "start_char": 560,
+          "end_char": 1459,
+          "title": "Comunicado Conjunto: entrada em vigor da CBS e do IBS em 2026",
+          "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2025/dezembro/comunicado-conjunto",
+          "text_sha256": "8608b2752ab36c2424e7fc9f84c217cfa4d64e0238ffc142439c8fd8dead933c"
+        },
+        {
+          "chunk_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf:articles-v1:4293-4891",
+          "document_id": "rfb-comunicado-2026:cfb617cb5ca5b7cf",
+          "source_id": "rfb-comunicado-2026",
+          "section": "7. Fundos de Compensação de Benefícios Fiscais",
+          "score": 0.861961841583252,
+          "start_char": 4293,
+          "end_char": 4891,
+          "title": "Comunicado Conjunto: entrada em vigor da CBS e do IBS em 2026",
+          "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2025/dezembro/comunicado-conjunto",
+          "text_sha256": "a9af3d58ddad6079b43650efdf2e338c7cfacd5183b67ea90f3eecc102dc4615"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:4664-5217",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2027 e 2028",
+          "score": 0.8615413904190063,
+          "start_char": 4664,
+          "end_char": 5217,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "3f8cfe277a8ce1ae52ad857f744fbccef27a54c5a8d6ea80872816f0a3466a5f"
+        }
+      ],
+      "lexical_tfidf": [
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:935-1204",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 2",
+          "score": 0.17659130400381529,
+          "start_char": 935,
+          "end_char": 1204,
+          "text_sha256": "b8eae9371b350dd599626ab9b934896cacf7c0f6ec6186b369fcbbfb0736100b"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:4336-4664",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2026",
+          "score": 0.14851287235961178,
+          "start_char": 4336,
+          "end_char": 4664,
+          "text_sha256": "c6fbf02c4a188e0b448b13a365ede0171abd5feb6b00900fbc427028142a246f"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:456417-457309",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 347",
+          "score": 0.14263076599425156,
+          "start_char": 456417,
+          "end_char": 457309,
+          "text_sha256": "0c702d6ae3877850b8c67bd0f132f11e692458b79d9a6cae456feb3e9c032fac"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:431-1325",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "Tributos que deixarão de existir:",
+          "score": 0.13948871695321782,
+          "start_char": 431,
+          "end_char": 1325,
+          "text_sha256": "0104170bfe2d7c918ea6a0bedb641325938f363d896faa3d2058afc510c44b07"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:457479-458378",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 348",
+          "score": 0.11966639948591894,
+          "start_char": 457479,
+          "end_char": 458378,
+          "text_sha256": "42a7e29d7bf434a5fdd086bbaa81f2a20121b707ccfb48cf8fc14dff0e508f83"
+        }
+      ]
+    },
+    {
+      "id": "insufficient-future",
+      "split": "diagnostic",
+      "category": "insufficient_documents",
+      "question": "Qual é a alíquota definitiva conjunta de IBS e CBS para todas as operações em 2035?",
+      "evidence": [],
+      "semantic_latency_ms": 12.256,
+      "lexical_latency_ms": 0.364,
+      "metrics": {
+        "semantic": null,
+        "lexical_tfidf": null
+      },
+      "semantic": [
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:4336-4664",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2026",
+          "score": 0.901312530040741,
+          "start_char": 4336,
+          "end_char": 4664,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "c6fbf02c4a188e0b448b13a365ede0171abd5feb6b00900fbc427028142a246f"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:455814-456239",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 345",
+          "score": 0.8995356559753418,
+          "start_char": 455814,
+          "end_char": 456239,
+          "title": "Lei Complementar nº 214, de 16 de janeiro de 2025 — texto atualizado",
+          "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html",
+          "text_sha256": "7335447fcd6a3193e7253f0cebb1b11f86b45d838493234d0d4098fa5fd391fb"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:5454-5487",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2032",
+          "score": 0.896003007888794,
+          "start_char": 5454,
+          "end_char": 5487,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "41c3051f21541ff9c9f0b652da06fdafe2e1cf99cf891826c4237eed4166630f"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:5421-5454",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2031",
+          "score": 0.8957557678222656,
+          "start_char": 5421,
+          "end_char": 5454,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "b05f93828078ab11eed0aa46f13c71e3369a8f31b3c3ac0d880212dda9621eb6"
+        },
+        {
+          "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:4664-5217",
+          "document_id": "rfb-entenda:1f23ca463889b4ac",
+          "source_id": "rfb-entenda",
+          "section": "2027 e 2028",
+          "score": 0.891632080078125,
+          "start_char": 4664,
+          "end_char": 5217,
+          "title": "Entenda a Reforma Tributária do Consumo",
+          "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+          "text_sha256": "3f8cfe277a8ce1ae52ad857f744fbccef27a54c5a8d6ea80872816f0a3466a5f"
+        }
+      ],
+      "lexical_tfidf": [
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:455814-456239",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 345",
+          "score": 0.19002004491092372,
+          "start_char": 455814,
+          "end_char": 456239,
+          "text_sha256": "7335447fcd6a3193e7253f0cebb1b11f86b45d838493234d0d4098fa5fd391fb"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:1204-2094",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 3",
+          "score": 0.17572900734034905,
+          "start_char": 1204,
+          "end_char": 2094,
+          "text_sha256": "ec4f8b30b63f7c8592f244d409e064dbdb37d29b554a9992638cadfc99c88696"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:935-1204",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 2",
+          "score": 0.15846335265138228,
+          "start_char": 935,
+          "end_char": 1204,
+          "text_sha256": "b8eae9371b350dd599626ab9b934896cacf7c0f6ec6186b369fcbbfb0736100b"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:2743-3037",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 3",
+          "score": 0.15360620126842403,
+          "start_char": 2743,
+          "end_char": 3037,
+          "text_sha256": "74b1ce6f7a2e9577c39c519489c640c571518c42d1eae316012ca0b45590b009"
+        },
+        {
+          "chunk_id": "lc214-atualizada:4392efe254937f3d:articles-v1:3037-3935",
+          "document_id": "lc214-atualizada:4392efe254937f3d",
+          "source_id": "lc214-atualizada",
+          "section": "Art. 4",
+          "score": 0.15268267234409813,
+          "start_char": 3037,
+          "end_char": 3935,
+          "text_sha256": "68cc46551564645d786ee2bc4b2e1c1b5fb8a730cda6bdbcc433e1e1b3589625"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Rótulos parciais por âncoras: trechos relevantes não rotulados podem ser contados como falha.",
+    "Amostra pequena; há perguntas que mencionam números de artigos e favorecem correspondência lexical.",
+    "Desenvolvimento e teste registrados separadamente; nenhum limiar de score foi calibrado.",
+    "Diagnósticos fora do escopo recebem vizinhos; não há classificador de escopo ou abstenção automática.",
+    "Não mede respostas geradas, suporte de afirmações, causalidade ou correção tributária.",
+    "Latência após carregar o modelo; resultados dependem da máquina e do estado do cache."
+  ]
+}

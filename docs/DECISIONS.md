@@ -22,13 +22,33 @@ Guardamos HTML por hash, texto limpo e offsets dos chunks. O SHA-256 ajuda a det
 
 O `document_id` liga cada chunk aos metadados da fonte. Os offsets permitem conferir `chunk.text` no texto limpo. A coleta aborta diante de bloqueio ou fonte incompleta e preserva o corpus anterior. Referência: [timeouts no HTTPX](https://www.python-httpx.org/advanced/timeouts/).
 
-## Por que RAG — decisão para a próxima entrega
+## Recuperação como etapa do RAG
 
-O objetivo é recuperar trechos pertinentes de um corpus que pode mudar e fornecer evidências na resposta. Um prompt longo com todos os textos repetiria centenas de milhares de caracteres por pergunta e dificultaria a inspeção do trecho usado. Embeddings multilíngues permitirão testar perguntas em português formuladas com palavras diferentes da fonte.
+O objetivo é recuperar trechos pertinentes de um corpus que pode mudar e fornecer evidências na resposta. Um prompt longo com todos os textos repetiria centenas de milhares de caracteres por pergunta e dificultaria a inspeção do trecho usado. Embeddings multilíngues são usados para comparar perguntas em português com o significado dos documentos.
 
-RAG não elimina alucinações. Recuperação pode selecionar o artigo errado ou uma orientação histórica; geração pode afirmar algo que a fonte não sustenta. Precisamos medir recuperação e suporte da resposta separadamente, conferir números e permitir abstenção. O modelo de embeddings, índice e LLM ainda não foram escolhidos ou executados.
+RAG não elimina alucinações. Recuperação pode selecionar o artigo errado ou uma orientação histórica; geração pode afirmar algo que a fonte não sustenta. Recuperação e suporte da resposta precisam de avaliações separadas. A etapa atual executa embeddings e busca; o LLM ainda não foi integrado.
 
-O estágio atual cobre a API e a ingestão rastreável. A escolha do modelo de embeddings e do índice dependerá de avaliação de recuperação e dos recursos necessários para execução local.
+## E5 quantizado em ONNX
+
+O ambiente alvo tem memória limitada. A versão ONNX quantizada do multilingual-e5-small reduz o tamanho do arquivo de pesos de cerca de 470 MB para 118 MB, segundo os metadados do repositório na revisão usada. ONNX Runtime e tokenizers permitem inferência local sem instalar PyTorch. Isso não implica que o uso total de RAM seja igual ao tamanho do arquivo.
+
+Os vetores têm 384 dimensões. São usados os prefixos específicos para pergunta/documento, pooling pela máscara de atenção e normalização L2, conforme o [model card](https://huggingface.co/intfloat/multilingual-e5-small). A revisão e os hashes impedem mudanças silenciosas no modelo baixado. Nenhum texto é enviado a um serviço de inferência externo.
+
+O tokenizer verifica o limite de 512 tokens; o código rejeita entradas acima do limite. Não há truncamento silencioso que poderia remover a exceção ou o número procurado.
+
+## Índice exato e recorte explícito
+
+O recorte inicial contém duas páginas explicativas e onze artigos da LC 214, produzindo 50 chunks por seção/artigo. A coleta integral continua preservada. Remissões a artigos fora desse recorte não são resolvidas automaticamente; o resultado da busca inclui a limitação temporal e a referência original.
+
+Para 50 vetores, NumPy permite busca exata simples e inspecionável. Produto interno de vetores unitários equivale a cosseno; não há perda por aproximação. FAISS ou um banco vetorial podem ser comparados quando volume, filtros ou concorrência justificarem. Uma nova geração do índice só é ativada após completar os artefatos, sem apagar a anterior.
+
+## Baseline e limites da avaliação
+
+O baseline lexical calcula TF-IDF com log-TF e cosseno, ajustando o vocabulário somente nos documentos. Usa o mesmo recorte e top-k do E5. O conjunto de perguntas foi separado em desenvolvimento, teste e diagnósticos antes da primeira avaliação, sem calibrar limiar pelo teste.
+
+Nos oito casos de teste, E5 acertou a evidência esperada em primeiro lugar em cinco; TF-IDF, em quatro. Ambos acertaram entre os cinco primeiros em todos os oito. Três falhas de primeiro resultado do E5 ocorreram em incidência geral, vigência integral do modelo e extinção de tributos. A divisão atual gera alguns trechos curtos, que podem perder contexto; uma próxima revisão deve usar novas perguntas de desenvolvimento e manter os casos já examinados como regressão, sem apresentá-los como teste inédito.
+
+Perguntas sem suporte também receberam scores altos. Similaridade mede proximidade do embedding, não validade jurídica nem possibilidade de responder. Esta versão retorna candidatos e não implementa abstenção. A geração precisará conferir evidência, números e contexto, com avaliação própria.
 
 ## Custos, privacidade e operação
 

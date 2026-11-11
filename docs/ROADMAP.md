@@ -21,7 +21,7 @@ Estado: concluída. Resultados em [PROGRESS.md](../PROGRESS.md). O endpoint de p
 
 ### 2A. Recuperação antes da geração
 
-Arquivos previstos: `app/retrieval.py`, `app/ingestion.py`, `app/main.py`, `tests/test_retrieval.py`, `evaluation/questions.json` e `scripts/evaluate_retrieval.py`.
+Arquivos: `app/chunking.py`, `app/embeddings.py`, `app/retrieval.py`, `app/main.py`, testes, `config/`, `evaluation/questions.json` e `scripts/evaluate_retrieval.py`.
 
 - Revisar chunks por seção/artigo e números em tabelas; preservar proveniência e escopo temporal.
 - Verificar licença e requisitos de um modelo multilíngue de sentence-transformers; registrar versão/revisão, dimensão e normalização.
@@ -33,10 +33,10 @@ Validação prevista:
 
 ```powershell
 .\.venv\Scripts\python.exe -m pytest -q
-.\.venv\Scripts\python.exe scripts/evaluate_retrieval.py
+.\.venv\Scripts\python.exe -m scripts.evaluate_retrieval
 ```
 
-Estado: planejada. Os novos arquivos e o comando de avaliação ainda não existem. A escolha do modelo depende da revisão de licença, tamanho e recursos locais.
+Estado: concluída no recorte inicial. E5 quantizado ONNX com revisão fixa e 50 chunks, busca exata em NumPy, `/search`, `/sources`, baseline TF-IDF e avaliação inicial. A ingestão original foi preservada; a segmentação do índice é feita em módulo separado. Sentence-transformers e FAISS não são dependências desta versão: ONNX foi escolhido para reduzir a carga de memória, e o índice pequeno permite busca exata simples. A cobertura integral da lei e o tratamento de tabelas continuam pendentes.
 
 ### 2B. Respostas fundamentadas
 

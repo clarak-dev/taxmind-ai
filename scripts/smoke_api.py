@@ -1,5 +1,6 @@
 """Verifica HTTP real em um Uvicorn temporário e salva evidência local."""
 
+import argparse
 import json
 import os
 import socket
@@ -14,6 +15,9 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--retrieval", action="store_true", help="Também verifica modelo e índice reais.")
+    args = parser.parse_args()
     reports = ROOT / "reports"
     reports.mkdir(exist_ok=True)
     with socket.socket() as listener:
@@ -22,10 +26,10 @@ def main() -> None:
     base = f"http://127.0.0.1:{port}"
     opener = build_opener(ProxyHandler({}))
 
-    def request(path, payload=None):
+    def request(path, payload=None, timeout=2):
         data = json.dumps(payload).encode() if payload is not None else None
         req = Request(base + path, data=data, headers={"Content-Type": "application/json"})
-        with opener.open(req, timeout=2) as response:
+        with opener.open(req, timeout=timeout) as response:
             return response.status, response.read()
 
     with (reports / "uvicorn.log").open("w", encoding="utf-8") as log:
@@ -61,10 +65,28 @@ def main() -> None:
                 "checks": {"health": "passed", "openapi": "passed", "docs": "passed", "simulate": "passed"},
                 "simulation": result,
             }
-            (reports / "api-smoke.json").write_text(
+            if args.retrieval:
+                status, body = request("/sources")
+                sources = json.loads(body)
+                assert status == 200 and sources["index_status"] == "validated"
+                assert len(sources["sources"]) == 3
+                status, body = request("/search", {
+                    "question": "O que é a CBS e de quem é sua competência?", "top_k": 5,
+                }, timeout=30)
+                search = json.loads(body)
+                assert status == 200 and len(search["results"]) == 5
+                assert all(hit["url"].startswith("https://") and hit["text"] for hit in search["results"])
+                assert any("CBS" in hit["text"] for hit in search["results"])
+                assert "answer" not in search and "não é" in search["notice"]
+                report.update({"sources": sources, "search": search})
+                report["checks"].update({"sources": "passed", "semantic_search_real_model": "passed"})
+            destination = "retrieval-api-smoke.json" if args.retrieval else "api-smoke.json"
+            (reports / destination).write_text(
                 json.dumps(report, ensure_ascii=False, indent=2), "utf-8"
             )
             print("HTTP real: /health, /openapi.json, /docs e /simulate aprovados.")
+            if args.retrieval:
+                print("HTTP real: /sources e /search com embeddings ONNX aprovados.")
         finally:
             process.terminate()
             try:

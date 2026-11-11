@@ -60,3 +60,41 @@ Documentação revisada para descrever o escopo técnico, instruções de execu�
 Uma cópia contendo somente os 22 arquivos selecionados para publicação foi validada: 38 testes passaram em 1,43 s, com o mesmo aviso de depreciação registrado na primeira execução. O smoke com HTTP real passou para as quatro rotas verificadas. A revisão do conteúdo selecionado não identificou credenciais ou caminhos pessoais.
 
 Repositório público: [clarak-dev/taxmind-ai](https://github.com/clarak-dev/taxmind-ai), branch `main`. Após o envio, os 22 arquivos remotos foram comparados com os hashes locais. O acesso à página e ao README foi confirmado sem autenticação. A publicação disponibiliza o código; a demonstração hospedada e o RAG completo continuam pendentes.
+
+## 11/11/2026 — recuperação semântica local
+
+### Implementado
+
+- E5 multilingual-small quantizado em ONNX Runtime CPU, com prefixos de pergunta/documento, pooling por máscara e normalização L2. Modelo original de terceiros, sem treinamento ou fine-tuning neste projeto. Revisão e hashes em `config/embedding_model.json`; licença declarada e referência em `THIRD_PARTY_NOTICES.md`.
+- Download explícito de dois arquivos públicos, aproximadamente 136 MB, sem autenticação ou execução de código remoto. Não são carregados pelo processo de API até a primeira busca.
+- Segmentação por artigo/seção em módulo separado, preservando a ingestão e o corpus já coletado. Recorte inicial: duas páginas da Receita e onze artigos da LC 214, descrito em `config/retrieval_scope.json`.
+- Índice local com **50 chunks, três fontes e 384 dimensões**. Produto interno de vetores unitários em NumPy, sem banco vetorial ou busca aproximada. Construção real registrada em `reports/index.json`: 6,475 s, incluindo carga do modelo.
+- Índice ligado a hashes do corpus, modelo e recorte; validação dos artefatos, rejeição de incompatibilidade e ativação de nova geração somente após sucesso. Modelo e índice ficam fora do Git.
+- `POST /search`: pergunta, top-k, trechos candidatos, seção, título, URL, offsets, data de acesso e ressalvas temporais. `GET /sources`: cadastro, coleta e quantidade efetivamente indexada. `/health` e `/simulate` preservados; versão da API 0.2.0.
+
+### Validação e resultados observados
+
+```powershell
+.\.venv\Scripts\python.exe -m app.embeddings download
+.\.venv\Scripts\python.exe -m app.retrieval build
+.\.venv\Scripts\python.exe -m scripts.evaluate_retrieval
+.\.venv\Scripts\python.exe scripts/smoke_api.py --retrieval
+.\.venv\Scripts\python.exe -m pytest -q --junitxml=reports/pytest-retrieval.xml
+.\.venv\Scripts\python.exe -m pip check
+```
+
+- **58 testes passaram** em 2,14 s, sem falhas ou skips. O XML registra 2,112 s no escopo da suíte. Incluem testes anteriores, fronteiras de artigos, offsets, pooling/normalização, ranking, proveniência, índices ausentes/corrompidos/desatualizados, preservação do índice após falha e contrato HTTP. Resumo em `reports/tests-retrieval.json`.
+- `pip check` aprovado. As versões existentes foram preservadas na instalação, e o lock completo foi atualizado. O conjunto agora inclui HTTPX2 como dependência transitiva; o aviso de TestClient observado na primeira entrega não apareceu nesta execução.
+- Smoke com Uvicorn e **modelo real** aprovado para `/sources` e `/search`, além das quatro rotas anteriores. Pergunta demonstrada: “O que é a CBS e de quem é sua competência?”. Fontes e trechos em `reports/retrieval-api-smoke.json`; o servidor temporário foi encerrado.
+- Avaliação real com 16 perguntas: 3 de desenvolvimento, 8 de teste com âncoras esperadas e 5 diagnósticos fora do escopo ou sem documentação suficiente. Labels definidos antes da primeira execução; nenhum limiar ajustado pelo teste. A segunda execução atualizou o formato do relatório e repetiu os mesmos resultados de ranking, sem alterar modelo, recorte, perguntas ou parâmetros.
+- No teste, E5: **Hit@1 = 5/8**, **Hit@3 = 7/8**, **Hit@5 = 8/8**, **MRR@5 = 0,78125**. Baseline lexical TF-IDF: **Hit@1 = 4/8**, **Hit@3 = 7/8**, **Hit@5 = 8/8**, **MRR@5 ≈ 0,69792**. Valores por caso e latências reais em `reports/retrieval-evaluation.json`.
+- Proveniência conferida para **80 resultados semânticos**: trecho corresponde aos offsets no texto coletado, e título/URL correspondem ao documento de origem. O relatório público guarda referências e hashes dos trechos, evitando duplicar o corpus.
+- Validação do conjunto de publicação: os 37 arquivos selecionados passaram pela revisão de credenciais e caminhos pessoais. Uma cópia contendo somente esses arquivos, sem pesos, corpus ou índice, executou os 58 testes em 2,29 s e o smoke da API básica. O smoke de recuperação com modelo real foi executado separadamente no ambiente preparado.
+
+### Limitações e próxima entrega
+
+**RAG com geração permanece parcial.** `/search` retorna vizinhos, inclusive para perguntas sem suporte. Scores altos nesses diagnósticos mostram que similaridade não equivale a confiança; não existe abstenção automática. Não há `/ask`, LLM, avaliação de afirmações ou interface de perguntas.
+
+O teste tem apenas oito casos positivos, com rótulos parciais e algumas perguntas que mencionam artigos. Não permite concluir desempenho geral ou superioridade estatística. A LC está indexada parcialmente, sem resolução automática de remissões ou estrutura de tabelas. A segmentação atual pode deixar trechos explicativos curtos sem contexto suficiente.
+
+Próximo incremento: backend de LLM configurável compatível com recursos disponíveis, respostas com citações e abstenção quando faltar evidência, além de avaliação própria de suporte e números. Qualquer conta ou custo precisa ser avaliado antes da integração.

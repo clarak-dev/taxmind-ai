@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "generation": "build-b042210f4cc146b284085e04afac177f",
+  "created_at": "2026-11-11T22:31:25.937794+00:00",
+  "corpus_sha256": "7b4f81ea2536924ffebc59de784c7abe3450fe34aad0a58dc5cfef4b988f3afe",
+  "scope_sha256": "be519fdcbd6673dd493d45c48a668e4325b48bdc6d3558b59d7966419dbf6fff",
+  "model_fingerprint": "d48c3ad92d2c6e1f7ca77ab96e2b79d49c025612e1adf5fad45ac7c581fc9164",
+  "model": {
+    "model_id": "intfloat/multilingual-e5-small",
+    "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+    "license": "MIT",
+    "model_card": "https://huggingface.co/intfloat/multilingual-e5-small",
+    "backend": "onnxruntime-cpu-qint8",
+    "dimensions": 384,
+    "max_tokens": 512,
+    "pooling": "attention-mask-mean",
+    "normalization": "L2",
+    "prefixes": {
+      "query": "query: ",
+      "passage": "passage: "
+    },
+    "files": {
+      "model.onnx": {
+        "remote_path": "onnx/model_qint8_avx512_vnni.onnx",
+        "bytes": 118346824,
+        "sha256": "dd476dd0c2514e9b9be83aeb3853fac0763e0bdf4a71645407587d77c48a2d88"
+      },
+      "tokenizer.json": {
+        "remote_path": "tokenizer.json",
+        "bytes": 17082730,
+        "sha256": "0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39"
+      }
+    }
+  },
+  "vectors_sha256": "30a457e71688902149066c14de447c8bb6e32cc2ddd572c349fb162113869b1b",
+  "snapshot_sha256": "a906eb3834ec886f183f30703b0e1196b6610d12448d89694d3a751e96a1e70d",
+  "chunk_count": 50,
+  "document_count": 3,
+  "dimensions": 384,
+  "search": "exact-normalized-dot-product",
+  "build_seconds": 6.475
+}
