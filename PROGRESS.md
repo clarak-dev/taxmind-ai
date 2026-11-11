@@ -1,5 +1,13 @@
 # Progresso
 
+## 11/11/2026 — Primeiras respostas com o LLM real
+
+A integração com a Groq foi verificada com três perguntas públicas. A pergunta sobre a competência da CBS recebeu a resposta “A CBS é um tributo de competência federal”, acompanhada de um trecho correspondente da Receita Federal. As perguntas sobre o clima e sobre o valor exato dos tributos de uma empresa sem informações suficientes foram recusadas.
+
+As respostas estão em [reports/rag-initial-validation.json](reports/rag-initial-validation.json). Uma tentativa interrompida pela cota do serviço foi preservada em [reports/rag-evaluation.json](reports/rag-evaluation.json), como erro operacional.
+
+Os 97 testes offline passaram novamente com a configuração local presente. O [teste HTTP com Uvicorn](reports/rag-api-smoke.json) também confirmou `/ask` com resposta citada usando o serviço real. A avaliação ampliada, incluindo perguntas numéricas e revisão da interpretação jurídica, continua pendente. A próxima entrega é a interface Vue.js com TypeScript.
+
 ## 11/11/2026 — Respostas com fontes
 
 O endpoint `/ask` integra a busca existente à Groq. As respostas são formadas por afirmações com evidências literais; título e URL vêm dos metadados do índice. O código confere referências e números, e outra chamada revisa o suporte das afirmações. Se faltar suporte, o rascunho é descartado.

@@ -2,7 +2,7 @@
 
 Projeto educacional de engenharia de IA para consultar documentos públicos da Reforma Tributária do Consumo e comparar cenários hipotéticos.
 
-**Em desenvolvimento:** API, simulador, ingestão, busca semântica e endpoint de respostas com LLM implementados. A integração de geração passou nos testes offline; a avaliação com o serviço real depende de configurar a chave local. Interface e previsão econômica continuam no [roadmap](docs/ROADMAP.md).
+**Em desenvolvimento:** API, simulador, ingestão, busca semântica e respostas com LLM implementados. A validação inicial com o serviço real cobriu uma resposta com fonte e duas abstenções. Interface, previsão econômica e avaliação ampliada continuam no [roadmap](docs/ROADMAP.md).
 
 ## Executar localmente
 
@@ -109,7 +109,7 @@ O primeiro comando pede a chave sem exibi-la e cria `.env`, excluído do Git. Se
 
 Abra `/docs` e envie a `/ask` uma pergunta como “A CBS é um tributo de competência de qual ente federativo?”. O resultado inclui resposta, afirmações, citações, razão da decisão, modelo e versão do prompt.
 
-A [documentação do RAG](docs/RAG.md) descreve configuração, contrato, erros e avaliação. **A validação com o provedor real ainda está pendente.** A revisão por LLM pode falhar mesmo quando as citações existem.
+A [documentação do RAG](docs/RAG.md) descreve configuração, contrato, erros e avaliação. Os [três casos iniciais com o provedor real](reports/rag-initial-validation.json) verificaram uma resposta citada e duas abstenções. A amostra é pequena e a revisão por LLM pode falhar mesmo quando as citações existem.
 
 ## Avaliação de recuperação
 
@@ -126,8 +126,8 @@ Relatórios: [avaliação por pergunta](reports/retrieval-evaluation.json), [ín
 
 ## Evidências e próximos passos
 
-Consulte o [progresso](PROGRESS.md), a [auditoria técnica](docs/AUDIT.md), o [roadmap](docs/ROADMAP.md) e as [decisões de arquitetura](docs/DECISIONS.md). Relatórios registram execuções observadas; a avaliação de geração ainda está pendente.
+Consulte o [progresso](PROGRESS.md), a [auditoria técnica](docs/AUDIT.md), o [roadmap](docs/ROADMAP.md) e as [decisões de arquitetura](docs/DECISIONS.md). Relatórios registram execuções observadas; a avaliação ampliada de geração e a revisão da interpretação jurídica continuam pendentes.
 
-Próximo incremento: concluir a avaliação com o provedor real e conectar uma interface Vue.js com TypeScript à API. A previsão de uma série econômica será uma entrega separada, com baseline e avaliação cronológica.
+Próximo incremento: conectar uma interface Vue.js com TypeScript à API e ampliar a avaliação das respostas. A previsão de uma série econômica será uma entrega separada, com baseline e avaliação cronológica.
 
 O projeto usa documentos públicos e exemplos sintéticos.

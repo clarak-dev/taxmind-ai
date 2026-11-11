@@ -17,9 +17,10 @@ A cobertura integral da lei, as remissões e o tratamento de tabelas continuam p
 - [x] Conferir referências, trechos literais e números; montar fontes a partir do índice.
 - [x] Implementar decisão de abstenção e revisão das afirmações em uma segunda chamada.
 - [x] Testar contratos, falhas do provedor e descarte de rascunhos sem suporte com fixtures.
-- [ ] Executar a avaliação com LLM real e revisar suporte, abstenções, citações e latência.
+- [x] Verificar uma resposta com fonte e duas abstenções com o LLM real.
+- [ ] Ampliar a avaliação, incluindo perguntas numéricas, e revisar suporte, citações e latência.
 
-A entrega deve incluir uma pergunta respondida com fonte verificável e uma pergunta recusada por falta de suporte, usando o backend real.
+Os três casos iniciais estão em [rag-initial-validation.json](../reports/rag-initial-validation.json). A amostra não substitui a avaliação ampliada nem a revisão da interpretação jurídica.
 
 ## Demonstração — planejado
 

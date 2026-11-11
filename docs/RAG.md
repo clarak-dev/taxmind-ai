@@ -55,7 +55,11 @@ Sem `--case`, o avaliador usa as 16 perguntas de `evaluation/questions.json`. Po
 
 O relatório `reports/rag-evaluation.json` guarda decisões, respostas, fontes, versões e verificações parciais das âncoras de referência. Relatórios existentes são preservados: renomeie o anterior antes de repetir. O smoke salva `reports/rag-api-smoke.json` após confirmar uma resposta citada por HTTP real.
 
-A correspondência de âncoras é uma verificação parcial, sem avaliação semântica independente. A revisão humana de suporte e atualidade fica pendente em cada caso. Não há resultado com provedor real registrado nesta etapa.
+A correspondência de âncoras é uma verificação parcial, sem avaliação semântica independente. A revisão humana de suporte e atualidade fica pendente em cada caso.
+
+A [validação inicial com o provedor real](../reports/rag-initial-validation.json) verificou três perguntas: competência da CBS, previsão do clima e valor exato dos tributos de uma empresa sem informações sobre ela. A primeira recebeu resposta com fonte da Receita; as outras duas resultaram em abstenção. São verificações funcionais iniciais, sem estimativa de qualidade geral. O lote completo de 16 perguntas e a revisão jurídica ainda não foram concluídos.
+
+A primeira execução em lote encontrou um limite de uso; a tentativa está preservada em [rag-evaluation.json](../reports/rag-evaluation.json). Os casos seguintes foram conferidos depois da pausa. A falha de cota permanece registrada como erro operacional.
 
 ## Limites
 

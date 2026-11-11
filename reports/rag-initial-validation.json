@@ -1,0 +1,98 @@
+{
+  "checked_at": "2026-11-11T23:29:58.534447+00:00",
+  "backend": "real_external_service",
+  "validation_type": "three_initial_cases",
+  "model": "qwen/qwen3.8-27b",
+  "provider": "groq",
+  "prompt_version": "rag-v1",
+  "prompt_sha256": "2855c8528843df411e664c8dfcdd341c55121698b28891357f142f2ca48b2748",
+  "index_generation": "build-b042210f4cc146b284085e04afac177f",
+  "corpus_sha256": "7b4f81ea2536924ffebc59de784c7abe3450fe34aad0a58dc5cfef4b988f3afe",
+  "cases": [
+    {
+      "category": "in_scope",
+      "expected_status": "answered",
+      "output": {
+        "question": "A CBS é um tributo de competência de qual ente federativo?",
+        "status": "answered",
+        "answer": "A CBS é um tributo de competência federal. [1]",
+        "claims": [
+          {
+            "text": "A CBS é um tributo de competência federal.",
+            "citation_ids": [
+              1
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "id": 1,
+            "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:12-188",
+            "source_id": "rfb-entenda",
+            "title": "Entenda a Reforma Tributária do Consumo",
+            "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+            "section": "Tributos que passarão a existir:",
+            "quote": "CBS:\nContribuição sobre Bens e Serviços (Federal);",
+            "accessed_at": "2026-11-11T22:05:05.524310+00:00",
+            "temporal_scope": "Página explicativa com cronograma de transição; verificar atualização na coleta.",
+            "legal_validity": "Material explicativo, sem força normativa própria. Conferir dispositivos e produção de efeitos na legislação.",
+            "start_char": 45,
+            "end_char": 95
+          }
+        ],
+        "reason": "supported",
+        "provider": "groq",
+        "model": "qwen/qwen3.8-27b",
+        "prompt_version": "rag-v1",
+        "index_generation": "build-b042210f4cc146b284085e04afac177f",
+        "latency_ms": 1597.414,
+        "notice": "Explicação educacional baseada no recorte disponível. A correspondência das citações é conferida pelo código; o suporte das afirmações é revisado por LLM e pode falhar. Confira vigência, exceções e documentos posteriores. Não substitui análise tributária individual."
+      },
+      "matches_expected_decision": true
+    },
+    {
+      "category": "out_of_scope",
+      "expected_status": "abstained",
+      "output": {
+        "question": "Vai chover amanha em Recife?",
+        "status": "abstained",
+        "answer": "Não encontrei evidências suficientes nos documentos disponíveis para responder com segurança.",
+        "claims": [],
+        "citations": [],
+        "reason": "insufficient_evidence",
+        "provider": "groq",
+        "model": "qwen/qwen3.8-27b",
+        "prompt_version": "rag-v1",
+        "index_generation": "build-b042210f4cc146b284085e04afac177f",
+        "latency_ms": 730.821,
+        "notice": "Explicação educacional baseada no recorte disponível. A correspondência das citações é conferida pelo código; o suporte das afirmações é revisado por LLM e pode falhar. Confira vigência, exceções e documentos posteriores. Não substitui análise tributária individual."
+      },
+      "matches_expected_decision": true
+    },
+    {
+      "category": "insufficient_documents",
+      "expected_status": "abstained",
+      "output": {
+        "question": "Qual sera o valor exato dos tributos da minha empresa em 2027?",
+        "status": "abstained",
+        "answer": "Não encontrei evidências suficientes nos documentos disponíveis para responder com segurança.",
+        "claims": [],
+        "citations": [],
+        "reason": "insufficient_evidence",
+        "provider": "groq",
+        "model": "qwen/qwen3.8-27b",
+        "prompt_version": "rag-v1",
+        "index_generation": "build-b042210f4cc146b284085e04afac177f",
+        "latency_ms": 982.967,
+        "notice": "Explicação educacional baseada no recorte disponível. A correspondência das citações é conferida pelo código; o suporte das afirmações é revisado por LLM e pode falhar. Confira vigência, exceções e documentos posteriores. Não substitui análise tributária individual."
+      },
+      "matches_expected_decision": true
+    }
+  ],
+  "limitations": [
+    "Small initial check, not an independent test set or estimate of general accuracy.",
+    "Generation and verification use the same model.",
+    "The first batch was interrupted by rate limiting; the failed attempt remains in rag-evaluation.json.",
+    "Legal interpretation and currency require further review."
+  ]
+}

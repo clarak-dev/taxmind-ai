@@ -26,7 +26,7 @@ O `document_id` liga cada chunk aos metadados da fonte. Os offsets permitem conf
 
 O objetivo é recuperar trechos pertinentes de um corpus que pode mudar e fornecer evidências na resposta. Um prompt longo com todos os textos repetiria centenas de milhares de caracteres por pergunta e dificultaria a inspeção do trecho usado. Embeddings multilíngues são usados para comparar perguntas em português com o significado dos documentos.
 
-RAG não elimina alucinações. Recuperação pode selecionar o artigo errado ou uma orientação histórica; geração pode afirmar algo que a fonte não sustenta. Recuperação e suporte da resposta precisam de avaliações separadas. A geração em `/ask` usa os trechos recuperados com validação de citações e uma segunda chamada de revisão. A avaliação com o provedor real ainda está pendente.
+RAG não elimina alucinações. Recuperação pode selecionar o artigo errado ou uma orientação histórica; geração pode afirmar algo que a fonte não sustenta. Recuperação e suporte da resposta precisam de avaliações separadas. A geração em `/ask` usa os trechos recuperados com validação de citações e uma segunda chamada de revisão. Três casos foram verificados com o provedor real; a avaliação ampliada continua pendente.
 
 ## E5 quantizado em ONNX
 
