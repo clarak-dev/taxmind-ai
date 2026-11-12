@@ -9,9 +9,10 @@ Atualizado em 11/11/2026.
 | Ingestão | Três fontes oficiais, com metadados de origem |
 | Busca semântica | E5 quantizado na CPU, com 50 trechos indexados |
 | Avaliação de recuperação | Comparação inicial com TF-IDF em 16 perguntas |
-| Testes | 97 testes passando, além do teste HTTP com o modelo de embeddings local |
+| Testes | 100 testes Python, 16 testes TypeScript e 16 verificações de navegador aprovados |
 | Geração por LLM | Integração Groq verificada em três casos reais; avaliação ampliada pendente |
-| Interface | Vue.js com TypeScript planejado |
+| Interface | Vue.js com TypeScript, perguntas, simulador e fontes; fluxo real verificado localmente |
+| Hospedagem | Demonstração pública ainda não publicada |
 | Previsão econômica | Série pública e regressão ainda não implementadas |
 
 ## Limitações conhecidas

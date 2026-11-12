@@ -1,5 +1,15 @@
 # Progresso
 
+## 11/11/2026 — Interface web
+
+A primeira interface tem assistente, simulador e fontes, com Vue.js e TypeScript. É possível fazer uma pergunta, abrir o trecho citado, comparar duas taxas hipotéticas e conferir os documentos disponíveis. O layout se adapta ao celular e informa espera, falta de suporte e falhas do serviço.
+
+O frontend compilado é servido pela própria FastAPI. As rotas anteriores foram preservadas, com equivalentes sob `/api`. Os cálculos continuam em Python e a chave do LLM permanece no servidor. Campos e respostas são mantidos apenas na memória da página ao trocar de área.
+
+Passaram 100 testes Python, 16 testes TypeScript e 16 verificações de navegador em computador e celular. Uma verificação separada usou o frontend compilado, a API e o LLM reais: houve resposta com fonte para a pergunta sobre a competência da CBS, abertura da citação e comparação hipotética de taxas. Os resultados estão em [reports/frontend-checks.json](reports/frontend-checks.json) e [reports/frontend-live-smoke.json](reports/frontend-live-smoke.json).
+
+A aplicação funciona localmente. Hospedagem pública, avaliação ampliada das respostas e previsão econômica continuam pendentes. Os comandos para executar e testar a interface estão em [docs/FRONTEND.md](docs/FRONTEND.md).
+
 ## 11/11/2026 — Primeiras respostas com o LLM real
 
 A integração com a Groq foi verificada com três perguntas públicas. A pergunta sobre a competência da CBS recebeu a resposta “A CBS é um tributo de competência federal”, acompanhada de um trecho correspondente da Receita Federal. As perguntas sobre o clima e sobre o valor exato dos tributos de uma empresa sem informações suficientes foram recusadas.

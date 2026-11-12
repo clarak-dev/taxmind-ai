@@ -22,9 +22,15 @@ A cobertura integral da lei, as remissões e o tratamento de tabelas continuam p
 
 Os três casos iniciais estão em [rag-initial-validation.json](../reports/rag-initial-validation.json). A amostra não substitui a avaliação ampliada nem a revisão da interpretação jurídica.
 
-## Demonstração — planejado
+## Interface — primeira versão concluída
 
-Interface em Vue.js com TypeScript para perguntas, respostas e fontes, seguida do simulador existente. Exibir estados de espera, falta de suporte e indisponibilidade. A hospedagem depende da validação do backend, das cotas e do consumo de recursos. Cadastro e histórico privado ficam fora da primeira demonstração.
+Interface em Vue.js com TypeScript para perguntas, fontes e simulador. Inclui citações expansíveis, estados de espera, abstenção, erros de conexão e cota, validação de parâmetros e navegação adaptada ao celular. O frontend compilado pode ser servido pela FastAPI, no mesmo endereço.
+
+Os testes do navegador usam fixtures de contrato. Uma verificação separada usou a API e o LLM reais, conferindo os trechos citados no corpus e um cálculo hipotético. Execução e comandos estão em [FRONTEND.md](FRONTEND.md).
+
+## Hospedagem — pendente
+
+Publicar a API com o índice e configurar o LLM no servidor. Validar memória, cotas, concorrência e limites de consultas antes de abrir a demonstração. O build estático da interface está pronto; uma hospedagem separada precisa de configuração explícita das origens permitidas. Cadastro e histórico privado ficam fora desta entrega.
 
 ## Série econômica — entrega planejada
 

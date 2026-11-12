@@ -1,0 +1,83 @@
+{
+  "checked_at": "2026-11-12T00:04:19.821Z",
+  "transport": "Browser, compiled frontend and FastAPI over loopback; real external LLM",
+  "browser": "157.0.4341.46",
+  "checks": {
+    "frontend_and_api_same_origin": "passed",
+    "sources": "passed",
+    "real_answer": "passed",
+    "citation_offsets_in_collected_document": "passed",
+    "simulation": "passed",
+    "desktop_and_mobile_overflow": "passed",
+    "no_provider_credentials_in_browser_requests": "passed",
+    "javascript_errors": 0
+  },
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "answer": {
+    "question": "A CBS é um tributo de competência de qual ente federativo?",
+    "status": "answered",
+    "answer": "A CBS é um tributo de competência federal. [1]",
+    "claims": [
+      {
+        "text": "A CBS é um tributo de competência federal.",
+        "citation_ids": [
+          1
+        ]
+      }
+    ],
+    "citations": [
+      {
+        "id": 1,
+        "chunk_id": "rfb-entenda:1f23ca463889b4ac:articles-v1:12-188",
+        "source_id": "rfb-entenda",
+        "title": "Entenda a Reforma Tributária do Consumo",
+        "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo/entenda",
+        "section": "Tributos que passarão a existir:",
+        "quote": "CBS:\nContribuição sobre Bens e Serviços (Federal);",
+        "accessed_at": "2026-11-11T22:05:05.524310+00:00",
+        "temporal_scope": "Página explicativa com cronograma de transição; verificar atualização na coleta.",
+        "legal_validity": "Material explicativo, sem força normativa própria. Conferir dispositivos e produção de efeitos na legislação.",
+        "start_char": 45,
+        "end_char": 95
+      }
+    ],
+    "reason": "supported",
+    "provider": "groq",
+    "model": "qwen/qwen3.8-27b",
+    "prompt_version": "rag-v1",
+    "index_generation": "build-b042210f4cc146b284085e04afac177f",
+    "latency_ms": 2309.424,
+    "notice": "Explicação educacional baseada no recorte disponível. A correspondência das citações é conferida pelo código; o suporte das afirmações é revisado por LLM e pode falhar. Confira vigência, exceções e documentos posteriores. Não substitui análise tributária individual."
+  },
+  "simulation": {
+    "currency": "BRL",
+    "base_amount": "100.00",
+    "current": {
+      "rate_percent": "10",
+      "tax_amount": "10.00",
+      "total_amount": "110.00"
+    },
+    "proposed": {
+      "rate_percent": "15",
+      "tax_amount": "15.00",
+      "total_amount": "115.00"
+    },
+    "tax_difference": "5.00",
+    "formula": "tributo = base_amount × rate_percent / 100; total = base + tributo",
+    "rounding": "Tributo arredondado para centavos com ROUND_HALF_UP.",
+    "disclaimer": "Cenário hipotético e educacional. As taxas são informadas pelo usuário; o cálculo não determina carga tributária real nem constitui orientação tributária. Não considera créditos, regimes especiais, transição ou incidência por produto."
+  },
+  "limitations": [
+    "One public question and one hypothetical calculation; not a general quality evaluation.",
+    "Same model generates and reviews claims; legal interpretation needs further review."
+  ]
+}

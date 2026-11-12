@@ -1,0 +1,50 @@
+{
+  "checked_at": "2026-11-12T00:09:14.736171+00:00",
+  "backend": {
+    "command": ".venv/Scripts/python.exe -m pytest -q --junitxml=reports/pytest.xml",
+    "passed": 100,
+    "failed": 0
+  },
+  "typescript": {
+    "command": "npm.cmd test",
+    "passed": 16,
+    "failed": 0,
+    "evidence": "Observed Vitest run; API client and formatting tests."
+  },
+  "browser": {
+    "command": "npm.cmd run test:e2e",
+    "passed": 16,
+    "failed": 0,
+    "flaky": 0,
+    "scenarios_per_viewport": 8,
+    "viewports": [
+      "1440x1000",
+      "390x844"
+    ],
+    "backend": "Explicit contract fixtures; not real LLM responses."
+  },
+  "production_build": {
+    "command": "npm.cmd run build",
+    "status": "passed",
+    "typescript_check": "vue-tsc --noEmit"
+  },
+  "live_smoke": {
+    "command": "npm.cmd run smoke:live",
+    "report": "reports/frontend-live-smoke.json",
+    "checks": {
+      "frontend_and_api_same_origin": "passed",
+      "sources": "passed",
+      "real_answer": "passed",
+      "citation_offsets_in_collected_document": "passed",
+      "simulation": "passed",
+      "desktop_and_mobile_overflow": "passed",
+      "no_provider_credentials_in_browser_requests": "passed",
+      "javascript_errors": 0
+    }
+  },
+  "limitations": [
+    "Browser contract tests do not estimate LLM answer quality.",
+    "Live smoke uses one public question and one hypothetical simulation.",
+    "No publicly hosted deployment was performed."
+  ]
+}

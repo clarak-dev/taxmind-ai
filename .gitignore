@@ -21,3 +21,10 @@ Thumbs.db
 *.key
 credentials*.json
 service-account*.json
+node_modules/
+frontend/dist/
+frontend/coverage/
+frontend/test-results/
+frontend/playwright-report/
+.sites-runtime/
+.sites-reports/

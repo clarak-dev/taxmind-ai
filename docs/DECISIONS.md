@@ -58,7 +58,13 @@ O LLM produz afirmações com citações literais e identificadores do índice. 
 
 ## Interface e modelo econômico
 
-A interface planejada usa Vue.js com TypeScript para apresentar respostas e fontes da FastAPI. A primeira demonstração não exige conta de usuário ou histórico privado. O módulo econômico começará com um único indicador público e validação cronológica, mantendo previsão estatística e simulação hipotética como operações distintas.
+A interface usa Vue.js com TypeScript para apresentar respostas e fontes da FastAPI. Vite fornece recarga durante o desenvolvimento e gera arquivos estáticos para distribuição. As três áreas usam navegação por fragmento e `KeepAlive`, mantendo campos e respostas na memória da página, sem persistir conversas. Não foi necessário adicionar um gerenciador global de estado ou uma biblioteca de rotas.
+
+Durante o desenvolvimento, o proxy do Vite encaminha `/api` à FastAPI. No build local, a FastAPI serve `frontend/dist` e as rotas `/api` no mesmo endereço; as rotas anteriores continuam disponíveis. Isso evita configurar CORS amplo e mantém a chave do LLM no servidor. A montagem estática é opcional, para preservar o uso da API sem Node ou build da interface.
+
+A resposta gerada é exibida como texto, sem `v-html`. As referências abrem trechos e links provenientes da API. O simulador normaliza a entrada decimal e envia strings; cálculos e arredondamento continuam em Python. Os testes de navegador usam fixtures de contrato, e o smoke real é separado para não consumir cota em cada execução.
+
+A primeira demonstração não exige conta de usuário ou histórico privado. O módulo econômico começará com um único indicador público e validação cronológica, mantendo previsão estatística e simulação hipotética como operações distintas.
 
 ## Custos, privacidade e operação
 

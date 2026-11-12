@@ -2,7 +2,23 @@
 
 Projeto educacional de engenharia de IA para consultar documentos públicos da Reforma Tributária do Consumo e comparar cenários hipotéticos.
 
-**Em desenvolvimento:** API, simulador, ingestão, busca semântica e respostas com LLM implementados. A validação inicial com o serviço real cobriu uma resposta com fonte e duas abstenções. Interface, previsão econômica e avaliação ampliada continuam no [roadmap](docs/ROADMAP.md).
+**Em desenvolvimento:** interface Vue com TypeScript, API, simulador, ingestão, busca semântica e respostas com LLM implementados. A validação inicial do RAG cobriu uma resposta com fonte e duas abstenções. Hospedagem, previsão econômica e avaliação ampliada continuam no [roadmap](docs/ROADMAP.md).
+
+## Interface web
+
+A interface permite fazer perguntas e abrir os trechos citados, comparar duas taxas hipotéticas e consultar as fontes disponíveis. Depois de preparar a API conforme as seções abaixo, execute na raiz do projeto:
+
+```powershell
+Set-Location frontend
+npm.cmd ci
+npm.cmd run build
+Set-Location ..
+.\.venv\Scripts\python.exe -m uvicorn app.main:app --host 127.0.0.1 --port 8000
+```
+
+Abra http://127.0.0.1:8000. É necessário Node.js 22.12+ para instalar e compilar o frontend. A chave do LLM fica no servidor. Desenvolvimento com recarga, testes e limites de hospedagem estão em [docs/FRONTEND.md](docs/FRONTEND.md).
+
+![Interface do TaxMind com assistente e documentos oficiais](docs/images/frontend-desktop.png)
 
 ## Executar localmente
 
@@ -37,6 +53,8 @@ Abra http://127.0.0.1:8000/docs. Ingestão e primeiro download do modelo requere
 | `POST /ask` | Resposta com afirmações citadas ou abstenção quando faltar suporte |
 | `GET /sources` | Fontes cadastradas, coletadas e efetivamente indexadas, com recorte explícito |
 | `GET /docs` e `/openapi.json` | Contrato e exploração da API |
+
+As operações também estão disponíveis sob `/api`, para uso da interface. A API continua funcionando sem instalar Node ou compilar o frontend.
 
 ```powershell
 $scenario = @{
@@ -128,6 +146,6 @@ Relatórios: [avaliação por pergunta](reports/retrieval-evaluation.json), [ín
 
 Consulte o [progresso](PROGRESS.md), a [auditoria técnica](docs/AUDIT.md), o [roadmap](docs/ROADMAP.md) e as [decisões de arquitetura](docs/DECISIONS.md). Relatórios registram execuções observadas; a avaliação ampliada de geração e a revisão da interpretação jurídica continuam pendentes.
 
-Próximo incremento: conectar uma interface Vue.js com TypeScript à API e ampliar a avaliação das respostas. A previsão de uma série econômica será uma entrega separada, com baseline e avaliação cronológica.
+Próximos incrementos: preparar a demonstração hospedada e ampliar a avaliação das respostas. A previsão de uma série econômica será uma entrega separada, com baseline e avaliação cronológica.
 
 O projeto usa documentos públicos e exemplos sintéticos.

@@ -7,10 +7,11 @@ from app.rag import AnswerService, AskInput, AskOutput
 from app.retrieval import IndexUnavailable, Retriever, SearchInput, SearchOutput, source_inventory
 
 from app.simulator import SimulationInput, SimulationOutput, simulate
+from app.web import mount_frontend
 
 app = FastAPI(
     title="TaxMind AI",
-    version="0.3.0",
+    version="0.4.0",
     description=(
         "Simulação hipotética e recuperação semântica de documentos oficiais. "
         "Respostas com LLM, citações verificáveis e revisão de suporte."
@@ -19,6 +20,7 @@ app = FastAPI(
 
 
 @app.get("/health")
+@app.get("/api/health", include_in_schema=False)
 def health() -> dict[str, str]:
     try:
         read_settings()
@@ -29,6 +31,7 @@ def health() -> dict[str, str]:
 
 
 @app.post("/simulate", response_model=SimulationOutput)
+@app.post("/api/simulate", response_model=SimulationOutput, include_in_schema=False)
 def simulate_endpoint(request: SimulationInput) -> SimulationOutput:
     return simulate(request)
 
@@ -53,6 +56,7 @@ def get_answer_service(llm=Depends(get_llm), retriever=Depends(get_retriever)) -
 
 
 @app.post("/ask", response_model=AskOutput)
+@app.post("/api/ask", response_model=AskOutput, include_in_schema=False)
 def ask_endpoint(request: AskInput, service=Depends(get_answer_service)) -> AskOutput:
     try:
         return service.ask(request)
@@ -65,6 +69,7 @@ def ask_endpoint(request: AskInput, service=Depends(get_answer_service)) -> AskO
 
 
 @app.post("/search", response_model=SearchOutput)
+@app.post("/api/search", response_model=SearchOutput, include_in_schema=False)
 def search_endpoint(request: SearchInput, retriever: Retriever = Depends(get_retriever)) -> SearchOutput:
     try:
         return retriever.search(request.question, request.top_k)
@@ -75,8 +80,12 @@ def search_endpoint(request: SearchInput, retriever: Retriever = Depends(get_ret
 
 
 @app.get("/sources")
+@app.get("/api/sources", include_in_schema=False)
 def sources_endpoint() -> dict:
     try:
         return source_inventory()
     except (ValueError, OSError) as exc:
         raise HTTPException(status_code=503, detail="Catálogo ou corpus documental inválido.") from exc
+
+
+mount_frontend(app)
